@@ -9,7 +9,7 @@ namespace msUtilites
    * mooreaWebRequestHeader
    * support class to manage custom Headers
    **/
-  class msWebRequestHeader
+  public class msWebRequestHeader
   {
     // header name
     public string name { get; set; }
@@ -30,7 +30,7 @@ namespace msUtilites
    * msWebRequest
    * manage HTTP(S) web requests, encapsulating WebRequest object and functionalities
    **/
-  class msWebRequest
+  public class msWebRequest
   {
     // internal WebRequest object
     private WebRequest request;
