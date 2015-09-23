@@ -2,7 +2,7 @@
 
 namespace msUtilites
 {
-  public class Conversion
+  public class msConversion
   {
 
     /**
