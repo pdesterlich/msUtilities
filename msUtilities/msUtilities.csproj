@@ -7,8 +7,8 @@
     <ProjectGuid>{A7B2CFA3-8E60-478E-A01A-5B356A159267}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>msUtilites</RootNamespace>
-    <AssemblyName>msUtilites</AssemblyName>
+    <RootNamespace>msUtilities</RootNamespace>
+    <AssemblyName>msUtilities</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

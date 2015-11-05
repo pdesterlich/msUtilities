@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.IO;
 
-namespace msUtilites
+namespace msUtilities
 {
   /**
    * mooreaWebRequestHeader
