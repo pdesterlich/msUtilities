@@ -17,7 +17,7 @@ namespace msUtilities
  *
  * usage:
  * -----
- * using (var progress = new ProgressBar(50, false))
+ * using (var progress = new msProgressBar(50, false))
  *   {
  *     for (int i = 0; i <= 100; i++)
  *       {
