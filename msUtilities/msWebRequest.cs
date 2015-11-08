@@ -125,11 +125,11 @@ namespace msUtilities
 
       foreach (var param in GetParams)
       {
-        address += String.Format("{0}{1}={2}", ((address.Contains("?")) ? "?" : "&"), param.name, param.value);
+        address += String.Format("{0}{1}={2}", ((address.Contains("?")) ? "&" : "?"), param.name, param.value);
       }
 
       // add additional get parameters
-      if (additionalGetParams != "") address += (address.Contains("?") ? "?" : "&") + additionalGetParams;
+      if (additionalGetParams != "") address += (address.Contains("?") ? "&" : "?") + additionalGetParams;
 
       // Create a request using a URL that can receive a post.
       WebRequest request = WebRequest.Create(address);
