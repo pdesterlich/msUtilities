@@ -34,51 +34,73 @@ namespace msUtilities
   {
 
     /// <summary>
-    /// indirizzo a cui collegarsi
+    /// request address
     /// </summary>
     private String url = "";
 
     /// <summary>
-    /// metodo della richiesta
+    /// request method
     /// </summary>
     private String method = "GET";
 
-    // internal WebRequest object
-    private WebRequest request;
-    // flag to enable requests to self signed https hosts
+    /// <summary>
+    /// flag to enable requests to self signed https hosts
+    /// </summary>
     public Boolean IgnoreInvalidSSL { get; set; }
-    // string containing chained parameters for POST requests (example: param01=value&param02=value)
+
+    /// <summary>
+    /// string containing chained parameters for POST requests (example: param01=value&param02=value)
+    /// </summary>
     public String PostParams { get; set; }
-    // content type for request (if not specified, POST requests use "application/x-www-form-urlencoded" content type)
+
+    /// <summary>
+    /// content type for request (if not specified, POST requests use "application/x-www-form-urlencoded" content type)
+    /// </summary>
     public String ContentType { get; set; }
-    // elenco dei parametri get
+
+    /// <summary>
+    /// list of get parameters
+    /// </summary>
     private List<msWebRequestParam> GetParams;
-    // custom headers list
+
+    /// <summary>
+    /// list of request headers
+    /// </summary>
     public List<msWebRequestParam> Headers;
-    // response status
+
+    /// <summary>
+    /// additional get parameters
+    /// </summary>
+    public String additionalGetParams { get; set; }
+
+    /// <summary>
+    /// response status
+    /// </summary>
     private String status = "";
+
     public String Status { get { return status; } }
 
-    /**
-     * mooreaWebRequest init function
-     * @param String url address for request
-     **/
+    /// <summary>
+    /// class init function (with method)
+    /// </summary>
+    /// <param name="url">address for request</param>
     public msWebRequest(string url)
     {
       this.url = url;
       // set init values for class properties
-      IgnoreInvalidSSL = false;
-      PostParams = "";
-      ContentType = "";
-      Headers = new List<msWebRequestParam>();
-      GetParams = new List<msWebRequestParam>();
+      this.IgnoreInvalidSSL = false;
+      this.PostParams = "";
+      this.ContentType = "application/x-www-form-urlencoded";
+      this.additionalGetParams = "";
+      this.Headers = new List<msWebRequestParam>();
+      this.GetParams = new List<msWebRequestParam>();
     }
 
-    /**
-     * mooreaWebRequest init function (with method)
-     * @param String url    address for request
-     * @param String method method for request (accepted values: GET, POST)
-     **/
+    /// <summary>
+    /// class init function (with method)
+    /// </summary>
+    /// <param name="url">address for request</param>
+    /// <param name="method">method for request (accepted values: GET, POST)</param>
     public msWebRequest(string url, string method)
             : this(url)
     {
@@ -93,20 +115,24 @@ namespace msUtilities
       }
     }
 
-    /**
-     * connect to target url and get response
-     **/
+    /// <summary>
+    /// connect to target url and get response
+    /// </summary>
+    /// <returns></returns>
     public string GetResponse()
     {
-      String indirizzo = url;
+      String address = url;
 
-      for (int i = 0; i < GetParams.Count; i++)
+      foreach (var param in GetParams)
       {
-        indirizzo += String.Format("{0}{1}={2}", ((i == 0) ? "?" : "&"), GetParams[i].name, GetParams[i].value);
+        address += String.Format("{0}{1}={2}", ((address.Contains("?")) ? "?" : "&"), param.name, param.value);
       }
 
+      // add additional get parameters
+      if (additionalGetParams != "") address += (address.Contains("?") ? "?" : "&") + additionalGetParams;
+
       // Create a request using a URL that can receive a post.
-      request = WebRequest.Create(indirizzo);
+      WebRequest request = WebRequest.Create(address);
 
       request.Method = method;
 
@@ -128,14 +154,7 @@ namespace msUtilities
         if (PostParams != "")
         {
           // Set the ContentType property of the WebRequest.
-          if (ContentType == "")
-          {
-            request.ContentType = "application/x-www-form-urlencoded";
-          }
-          else
-          {
-            request.ContentType = ContentType;
-          }
+          request.ContentType = ContentType;
 
           // add post parameters
           using (var streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -173,10 +192,10 @@ namespace msUtilities
 
     /// <summary>
     /// addGetParam
-    /// aggiunge un nuovo parametro get
+    /// add a new get parameters
     /// </summary>
-    /// <param name="name">nome del parametro</param>
-    /// <param name="value">valore associato al parametro</param>
+    /// <param name="name">parameter name</param>
+    /// <param name="value">parameter value</param>
     public void addGetParam(String name, String value)
     {
       GetParams.Add(new msWebRequestParam(name, value));
@@ -184,10 +203,10 @@ namespace msUtilities
 
     /// <summary>
     /// addHeader
-    /// aggiunge un nuovo header
+    /// add a new header
     /// </summary>
-    /// <param name="name">nome dell'header</param>
-    /// <param name="value">valore associato all'header</param>
+    /// <param name="name">header name</param>
+    /// <param name="value">header value</param>
     public void addHeader(String name, String value)
     {
       Headers.Add(new msWebRequestParam(name, value));
