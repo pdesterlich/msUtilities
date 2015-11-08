@@ -9,7 +9,7 @@ namespace msUtilities
    * mooreaWebRequestHeader
    * support class to manage custom Headers
    **/
-  public class msWebRequestHeader
+  public class msWebRequestParam
   {
     // header name
     public string name { get; set; }
@@ -19,7 +19,7 @@ namespace msUtilities
     /**
      * mooreaWebRequestHeader init function
      **/
-    public msWebRequestHeader(String name, String value)
+    public msWebRequestParam(String name, String value)
     {
       this.name = name;
       this.value = value;
@@ -32,6 +32,17 @@ namespace msUtilities
    **/
   public class msWebRequest
   {
+
+    /// <summary>
+    /// indirizzo a cui collegarsi
+    /// </summary>
+    private String url = "";
+
+    /// <summary>
+    /// metodo della richiesta
+    /// </summary>
+    private String method = "GET";
+
     // internal WebRequest object
     private WebRequest request;
     // flag to enable requests to self signed https hosts
@@ -40,8 +51,10 @@ namespace msUtilities
     public String PostParams { get; set; }
     // content type for request (if not specified, POST requests use "application/x-www-form-urlencoded" content type)
     public String ContentType { get; set; }
+    // elenco dei parametri get
+    private List<msWebRequestParam> GetParams;
     // custom headers list
-    public List<msWebRequestHeader> Headers { get; set; }
+    public List<msWebRequestParam> Headers;
     // response status
     private String status = "";
     public String Status { get { return status; } }
@@ -52,13 +65,13 @@ namespace msUtilities
      **/
     public msWebRequest(string url)
     {
-      // Create a request using a URL that can receive a post.
-      request = WebRequest.Create(url);
+      this.url = url;
       // set init values for class properties
       IgnoreInvalidSSL = false;
       PostParams = "";
       ContentType = "";
-      Headers = new List<msWebRequestHeader>();
+      Headers = new List<msWebRequestParam>();
+      GetParams = new List<msWebRequestParam>();
     }
 
     /**
@@ -69,11 +82,10 @@ namespace msUtilities
     public msWebRequest(string url, string method)
             : this(url)
     {
-
       if (method.Equals("GET") || method.Equals("POST"))
       {
         // Set the Method property of the request to POST.
-        request.Method = method;
+        this.method = method;
       }
       else
       {
@@ -86,6 +98,18 @@ namespace msUtilities
      **/
     public string GetResponse()
     {
+      String indirizzo = url;
+
+      for (int i = 0; i < GetParams.Count; i++)
+      {
+        indirizzo += String.Format("{0}{1}={2}", ((i == 0) ? "?" : "&"), GetParams[i].name, GetParams[i].value);
+      }
+
+      // Create a request using a URL that can receive a post.
+      request = WebRequest.Create(indirizzo);
+
+      request.Method = method;
+
       try
       {
         // if needed, disable SSL certificates verification
@@ -145,6 +169,28 @@ namespace msUtilities
       {
         return String.Format("error: {0} - {1}", err.Status, err.Message);
       }
+    }
+
+    /// <summary>
+    /// addGetParam
+    /// aggiunge un nuovo parametro get
+    /// </summary>
+    /// <param name="name">nome del parametro</param>
+    /// <param name="value">valore associato al parametro</param>
+    public void addGetParam(String name, String value)
+    {
+      GetParams.Add(new msWebRequestParam(name, value));
+    }
+
+    /// <summary>
+    /// addHeader
+    /// aggiunge un nuovo header
+    /// </summary>
+    /// <param name="name">nome dell'header</param>
+    /// <param name="value">valore associato all'header</param>
+    public void addHeader(String name, String value)
+    {
+      Headers.Add(new msWebRequestParam(name, value));
     }
   }
 }
