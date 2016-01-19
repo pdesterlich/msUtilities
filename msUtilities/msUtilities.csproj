@@ -36,7 +36,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="msDateHelpers.cs" />
+    <Compile Include="msYear.cs" />
     <Compile Include="msConversion.cs" />
+    <Compile Include="msMonth.cs" />
     <Compile Include="msProgressBar.cs" />
     <Compile Include="msWebRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
