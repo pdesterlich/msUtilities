@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace msUtilities
 {
-  class msMonth
+  public class msMonth
   {
     public DateTime startDate;
     public DateTime endDate;

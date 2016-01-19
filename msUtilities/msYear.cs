@@ -4,7 +4,7 @@ using System.Text;
 
 namespace msUtilities
 {
-  class msYear
+  public class msYear
   {
     public DateTime startDate;
     public DateTime endDate;
