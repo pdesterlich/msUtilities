@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="msDateHelpers.cs" />
+    <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
     <Compile Include="msConversion.cs" />
     <Compile Include="msMonth.cs" />
