@@ -134,5 +134,27 @@ namespace msUtilities
           return defaultValue;
       }
     }
+
+    /// <summary>
+    /// returns the value (string) of a node attribute
+    /// (original code by Ari Roth - http://stackoverflow.com/a/14132062)
+    /// </summary>
+    /// <param name="node">xml node</param>
+    /// <param name="attribute">attribute name</param>
+    /// <param name="defaultValue">default value if not found</param>
+    /// <returns>attribute value</returns>
+    public static string attribute(XmlNode node, String attribute, String defaultValue)
+    {
+      if (node.Attributes == null)
+        return defaultValue;
+      else
+      {
+        var nameAttribute = node.Attributes[attribute];
+        if (nameAttribute == null)
+          return defaultValue;
+        else
+          return nameAttribute.Value;
+      }
+    }
   }
 }
