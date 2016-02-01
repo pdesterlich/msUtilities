@@ -156,5 +156,64 @@ namespace msUtilities
           return nameAttribute.Value;
       }
     }
+
+    /// <summary>
+    /// returns the value (bool) of a node attribute
+    /// </summary>
+    /// <param name="node">xml node</param>
+    /// <param name="attribute">attribute name</param>
+    /// <param name="defaultValue">default value if not found or in case of conversion error</param>
+    /// <returns>attribute value</returns>
+    public static int attribute(XmlNode node, String attribute, int defaultValue)
+    {
+      if (node.Attributes == null)
+        return defaultValue;
+      else
+      {
+        var nameAttribute = node.Attributes[attribute];
+        if (nameAttribute == null)
+          return defaultValue;
+        else
+        {
+          // return nameAttribute.Value;
+          int j;
+          String value = nameAttribute.Value;
+          if (Int32.TryParse(value, out j))
+            return j;
+          else
+            return defaultValue;
+        }
+      }
+    }
+
+    /// <summary>
+    /// returns the value (bool) of a node attribute
+    /// </summary>
+    /// <param name="node">xml node</param>
+    /// <param name="attribute">attribute name</param>
+    /// <param name="defaultValue">default value if not found or in case of conversion error</param>
+    /// <returns>attribute value</returns>
+    public static bool attribute(XmlNode node, String attribute, bool defaultValue)
+    {
+      if (node.Attributes == null)
+        return defaultValue;
+      else
+      {
+        var nameAttribute = node.Attributes[attribute];
+        if (nameAttribute == null)
+          return defaultValue;
+        else
+        {
+          // return nameAttribute.Value;
+          bool j;
+          String value = nameAttribute.Value;
+          if (bool.TryParse(value, out j))
+            return j;
+          else
+            return defaultValue;
+        }
+      }
+    }
+
   }
 }
