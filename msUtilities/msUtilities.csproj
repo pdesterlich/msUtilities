@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="msConnectionString.cs" />
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
