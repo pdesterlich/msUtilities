@@ -2,7 +2,7 @@
 
 namespace msUtilities
 {
-  class msConnectionString
+  public class msConnectionString
   {
     public String username { get; set; } = "";
     public String password { get; set; } = "";
