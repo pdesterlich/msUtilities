@@ -40,7 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="msConnectionString.cs" />
+    <Compile Include="msConversion.cs" />
+    <Compile Include="msDateHelpers.cs" />
+    <Compile Include="msMonth.cs" />
+    <Compile Include="msProgressBar.cs" />
     <Compile Include="msStringCipher.cs" />
+    <Compile Include="msWebRequest.cs" />
+    <Compile Include="msXmlHelpers.cs" />
+    <Compile Include="msYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
