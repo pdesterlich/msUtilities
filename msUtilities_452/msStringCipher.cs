@@ -6,6 +6,11 @@ using System.Linq;
 
 namespace msUtilities
 {
+  /// <summary>
+  /// string encryption and decryption
+  /// original code by Craig Phillips (@craigtptech / craig@craigtp.co.uk / http://www.craigtp.co.uk/)
+  /// from http://stackoverflow.com/a/10177020
+  /// </summary>
   public class msStringCipher
   {
     // This constant is used to determine the keysize of the encryption algorithm in bits.
