@@ -2,15 +2,39 @@
 
 namespace msUtilities
 {
+  /// <summary>
+  /// currently supported database types (for connection string generation)
+  /// </summary>
+  public enum DatabaseType { dtFirebird, dtSqlServer, dtOther };
+
+  /// <summary>
+  /// class msConnectionString
+  /// holds database connection parameters and allows connection string generation
+  /// currently supports connection string generation for
+  /// - Firebird
+  /// - Sql Server
+  /// </summary>
   public class msConnectionString
   {
-    public enum DatabaseType { dtFirebird, dtSqlServer };
-
     public DatabaseType databaseType { get; set; } = DatabaseType.dtFirebird;
+    public String databaseTypeCustom { get; set; } = "";
     public String username { get; set; } = "";
     public String password { get; set; } = "";
     public String host { get; set; } = "localhost";
     public String database { get; set; } = "";
+
+    /// <summary>
+    /// class initialization (empty)
+    /// </summary>
+    public msConnectionString()
+    {
+      this.databaseType = DatabaseType.dtFirebird;
+      this.databaseTypeCustom = "";
+      this.username = "";
+      this.password = "";
+      this.host = "localhost";
+      this.database = "";
+    }
 
     /// <summary>
     /// class initialization
@@ -23,6 +47,7 @@ namespace msUtilities
     public msConnectionString(DatabaseType databaseType, String username, String password, String host, String database)
     {
       this.databaseType = databaseType;
+      this.databaseTypeCustom = "";
       this.username = username;
       this.password = password;
       this.host = host;

@@ -11,7 +11,7 @@ namespace msUtilities_452_test
     public void TestConnectionStringGenerationFirebird()
     {
       msConnectionString conn = new msConnectionString(
-        msConnectionString.DatabaseType.dtFirebird,
+        DatabaseType.dtFirebird,
         "user",
         "password",
         "host",
@@ -25,10 +25,26 @@ namespace msUtilities_452_test
     }
 
     [TestMethod]
+    public void TestConnectionStringGenerationFirebirdEmpty()
+    {
+      var conn = new msConnectionString();
+      conn.databaseType = DatabaseType.dtFirebird;
+      conn.username = "user";
+      conn.password = "password";
+      conn.host = "host";
+      conn.database = "database";
+
+      string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
+      string result = conn.getConnectionString();
+
+      Assert.AreEqual(test, result);
+    }
+
+    [TestMethod]
     public void TestConnectionStringGenerationSqlServer()
     {
       msConnectionString conn = new msConnectionString(
-        msConnectionString.DatabaseType.dtSqlServer,
+        DatabaseType.dtSqlServer,
         "user",
         "password",
         "host",
@@ -36,6 +52,23 @@ namespace msUtilities_452_test
         );
 
       string test = String.Format("User Id={0};Password={1};Database={2};Server={3};", "user", "password", "database", "host");
+      string result = conn.getConnectionString();
+
+      Assert.AreEqual(test, result);
+    }
+
+    [TestMethod]
+    public void TestConnectionStringGenerationOther()
+    {
+      msConnectionString conn = new msConnectionString(
+        DatabaseType.dtOther,
+        "user",
+        "password",
+        "host",
+        "database"
+        );
+
+      string test = "";
       string result = conn.getConnectionString();
 
       Assert.AreEqual(test, result);
