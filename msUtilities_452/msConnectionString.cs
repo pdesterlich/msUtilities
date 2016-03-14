@@ -72,6 +72,16 @@ namespace msUtilities
     }
 
     /// <summary>
+    /// return a text representation of the current connection
+    /// in the form of database @ host
+    /// </summary>
+    /// <returns>current connection text</returns>
+    public override String ToString()
+    {
+      return String.Format("{0} @ {1}", this.database, this.host);
+    }
+
+    /// <summary>
     /// return the connection string for a firebird database
     /// </summary>
     /// <returns>connection string</returns>
