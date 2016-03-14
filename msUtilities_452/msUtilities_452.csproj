@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="msConnectionString.cs" />
+    <Compile Include="msConnectionParams.cs" />
     <Compile Include="msConversion.cs" />
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msMonth.cs" />

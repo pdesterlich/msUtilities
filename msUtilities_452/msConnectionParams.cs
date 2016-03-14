@@ -14,7 +14,7 @@ namespace msUtilities
   /// - Firebird
   /// - Sql Server
   /// </summary>
-  public class msConnectionString
+  public class msConnectionParams
   {
     public DatabaseType databaseType { get; set; } = DatabaseType.dtFirebird;
     public String databaseTypeCustom { get; set; } = "";
@@ -26,7 +26,7 @@ namespace msUtilities
     /// <summary>
     /// class initialization (empty)
     /// </summary>
-    public msConnectionString()
+    public msConnectionParams()
     {
       this.databaseType = DatabaseType.dtFirebird;
       this.databaseTypeCustom = "";
@@ -44,7 +44,7 @@ namespace msUtilities
     /// <param name="password">password</param>
     /// <param name="host">server</param>
     /// <param name="database">database</param>
-    public msConnectionString(DatabaseType databaseType, String username, String password, String host, String database)
+    public msConnectionParams(DatabaseType databaseType, String username, String password, String host, String database)
     {
       this.databaseType = databaseType;
       this.databaseTypeCustom = "";

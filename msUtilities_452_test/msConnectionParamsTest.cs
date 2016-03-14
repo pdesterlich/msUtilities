@@ -5,12 +5,12 @@ using msUtilities;
 namespace msUtilities_452_test
 {
   [TestClass]
-  public class msConnectionStringTest
+  public class msConnectionParamsTest
   {
     [TestMethod]
     public void TestConnectionStringGenerationFirebird()
     {
-      msConnectionString conn = new msConnectionString(
+      msConnectionParams conn = new msConnectionParams(
         DatabaseType.dtFirebird,
         "user",
         "password",
@@ -27,7 +27,7 @@ namespace msUtilities_452_test
     [TestMethod]
     public void TestConnectionStringGenerationFirebirdEmpty()
     {
-      var conn = new msConnectionString();
+      var conn = new msConnectionParams();
       conn.databaseType = DatabaseType.dtFirebird;
       conn.username = "user";
       conn.password = "password";
@@ -43,7 +43,7 @@ namespace msUtilities_452_test
     [TestMethod]
     public void TestConnectionStringGenerationSqlServer()
     {
-      msConnectionString conn = new msConnectionString(
+      msConnectionParams conn = new msConnectionParams(
         DatabaseType.dtSqlServer,
         "user",
         "password",
@@ -60,7 +60,7 @@ namespace msUtilities_452_test
     [TestMethod]
     public void TestConnectionStringGenerationOther()
     {
-      msConnectionString conn = new msConnectionString(
+      msConnectionParams conn = new msConnectionParams(
         DatabaseType.dtOther,
         "user",
         "password",
