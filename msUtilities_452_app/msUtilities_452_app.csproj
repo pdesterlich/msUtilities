@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{152B81CC-0AD4-4F14-8500-712ABCFB63AA}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{8D8F9F43-9FC0-49D8-B148-49826C815FF7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>msUtilities</RootNamespace>
-    <AssemblyName>msUtilities</AssemblyName>
+    <RootNamespace>msUtilities_452_app</RootNamespace>
+    <AssemblyName>msUtilities_452_app</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,37 +35,55 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="msConnectionForm.cs">
+    <Compile Include="frmTestApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="msConnectionForm.Designer.cs">
-      <DependentUpon>msConnectionForm.cs</DependentUpon>
+    <Compile Include="frmTestApp.Designer.cs">
+      <DependentUpon>frmTestApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="msConnectionParams.cs" />
-    <Compile Include="msConversion.cs" />
-    <Compile Include="msDateHelpers.cs" />
-    <Compile Include="msMonth.cs" />
-    <Compile Include="msProgressBar.cs" />
-    <Compile Include="msStringCipher.cs" />
-    <Compile Include="msWebRequest.cs" />
-    <Compile Include="msXmlHelpers.cs" />
-    <Compile Include="msYear.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmTestApp.resx">
+      <DependentUpon>frmTestApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="msConnectionForm.resx">
-      <DependentUpon>msConnectionForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\msUtilities_452\msUtilities_452.csproj">
+      <Project>{152b81cc-0ad4-4f14-8500-712abcfb63aa}</Project>
+      <Name>msUtilities_452</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
