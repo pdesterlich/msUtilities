@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 
 namespace msUtilities
 {
@@ -37,7 +38,7 @@ namespace msUtilities
     }
 
     /// <summary>
-    /// class initialization
+    /// class initialization (passing params)
     /// </summary>
     /// <param name="databaseType">database type</param>
     /// <param name="username">user name</param>
@@ -52,6 +53,23 @@ namespace msUtilities
       this.password = password;
       this.host = host;
       this.database = database;
+    }
+
+    /// <summary>
+    /// class initialization (read params from XmlElement attributes)
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to read params from</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption</param>
+    public msConnectionParams(XmlElement xmlElement, string encryptionKey = "")
+    {
+      this.databaseType = DatabaseType.dtFirebird;
+      this.databaseTypeCustom = "";
+      this.username = "";
+      this.password = "";
+      this.host = "localhost";
+      this.database = "";
+
+      this.FromXml(xmlElement, encryptionKey);
     }
 
     /// <summary>
@@ -79,6 +97,57 @@ namespace msUtilities
     public override String ToString()
     {
       return String.Format("{0} @ {1}", this.database, this.host);
+    }
+
+    /// <summary>
+    /// writes connection params as attributes of a xml element
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to add attributes to</param>
+    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear)</param>
+    public void ToXml(XmlElement xmlElement, String encryptionKey = "")
+    {
+      xmlElement.SetAttribute("databaseType", this.databaseType.ToString());
+      xmlElement.SetAttribute("databaseTypeCustom", this.databaseTypeCustom);
+      xmlElement.SetAttribute("host", this.host);
+      xmlElement.SetAttribute("database", this.database);
+      xmlElement.SetAttribute("username", this.username);
+      if (encryptionKey == "")
+      {
+        xmlElement.SetAttribute("password", this.password);
+      }
+      else
+      {
+        xmlElement.SetAttribute("password", msStringCipher.Encrypt(this.password, encryptionKey));
+      }
+    }
+
+    /// <summary>
+    /// loads connection params from attributes of a xml element
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to read attributes from</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is)</param>
+    public void FromXml(XmlElement xmlElement, string encryptionKey = "")
+    {
+      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), msXmlHelpers.attribute(xmlElement, "databaseType", "dtFirebird"));
+      this.databaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
+      this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
+      this.database = msXmlHelpers.attribute(xmlElement, "database", "");
+      this.username = msXmlHelpers.attribute(xmlElement, "username", "");
+      if (encryptionKey == "")
+      {
+        this.password = msXmlHelpers.attribute(xmlElement, "password", "");
+      }
+      else
+      {
+        try
+        {
+          this.password = msStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+        }
+        catch
+        {
+          this.password = msXmlHelpers.attribute(xmlElement, "password", "");
+        }
+      }
     }
 
     /// <summary>

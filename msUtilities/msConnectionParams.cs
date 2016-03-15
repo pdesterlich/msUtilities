@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 
 namespace msUtilities
 {
@@ -55,6 +56,22 @@ namespace msUtilities
     }
 
     /// <summary>
+    /// class initialization (read params from XmlElement attributes)
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to read params from</param>
+    public msConnectionParams(XmlElement xmlElement)
+    {
+      this.databaseType = DatabaseType.dtFirebird;
+      this.databaseTypeCustom = "";
+      this.username = "";
+      this.password = "";
+      this.host = "localhost";
+      this.database = "";
+
+      this.FromXml(xmlElement);
+    }
+
+    /// <summary>
     /// return the connection string based on the database type
     /// </summary>
     /// <returns>connection string</returns>
@@ -79,6 +96,34 @@ namespace msUtilities
     public override String ToString()
     {
       return String.Format("{0} @ {1}", this.database, this.host);
+    }
+
+    /// <summary>
+    /// writes connection params as attributes of a xml element
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to add attributes to</param>
+    public void ToXml(XmlElement xmlElement)
+    {
+      xmlElement.SetAttribute("databaseType", this.databaseType.ToString());
+      xmlElement.SetAttribute("databaseTypeCustom", this.databaseTypeCustom);
+      xmlElement.SetAttribute("host", this.host);
+      xmlElement.SetAttribute("database", this.database);
+      xmlElement.SetAttribute("username", this.username);
+      xmlElement.SetAttribute("password", this.password);
+    }
+
+    /// <summary>
+    /// loads connection params from attributes of a xml element
+    /// </summary>
+    /// <param name="xmlElement">XmlElement to read attributes from</param>
+    public void FromXml(XmlElement xmlElement)
+    {
+      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), msXmlHelpers.attribute(xmlElement, "databaseType", "dtFirebird"));
+      this.databaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
+      this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
+      this.database = msXmlHelpers.attribute(xmlElement, "database", "");
+      this.username = msXmlHelpers.attribute(xmlElement, "username", "");
+      this.password = msXmlHelpers.attribute(xmlElement, "password", "");
     }
 
     /// <summary>
