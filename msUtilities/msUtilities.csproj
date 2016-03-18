@@ -46,6 +46,7 @@
     </Compile>
     <Compile Include="msConnectionParams.cs" />
     <Compile Include="msDateHelpers.cs" />
+    <Compile Include="msSmtpConfig.cs" />
     <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
     <Compile Include="msConversion.cs" />
