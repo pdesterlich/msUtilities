@@ -45,6 +45,7 @@
       // 
       // cboTipo
       // 
+      this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cboTipo.FormattingEnabled = true;
       this.cboTipo.Location = new System.Drawing.Point(92, 12);
       this.cboTipo.Name = "cboTipo";
