@@ -58,5 +58,16 @@ namespace msUtilities_452_app
         MessageBox.Show("ci sono errori: " + error);
       }
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      var smtpConfigForm = new msSmtpConfigForm();
+      var smtpConfig = new msSmtpConfig();
+      if (smtpConfigForm.showDialog("msUtilities Test App", ref smtpConfig))
+      {
+        MessageBox.Show(smtpConfig.Name);
+        MessageBox.Show(smtpConfig.Host);
+      }
+    }
   }
 }

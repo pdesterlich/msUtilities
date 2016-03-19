@@ -48,6 +48,12 @@
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msSendMail.cs" />
     <Compile Include="msSmtpConfig.cs" />
+    <Compile Include="msSmtpConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="msSmtpConfigForm.designer.cs">
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
     <Compile Include="msConversion.cs" />
@@ -55,6 +61,14 @@
     <Compile Include="msProgressBar.cs" />
     <Compile Include="msWebRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="msConnectionForm.resx">
+      <DependentUpon>msConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="msSmtpConfigForm.resx">
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

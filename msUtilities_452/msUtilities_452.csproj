@@ -55,6 +55,12 @@
     <Compile Include="msProgressBar.cs" />
     <Compile Include="msSendMail.cs" />
     <Compile Include="msSmtpConfig.cs" />
+    <Compile Include="msSmtpConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="msSmtpConfigForm.Designer.cs">
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="msStringCipher.cs" />
     <Compile Include="msWebRequest.cs" />
     <Compile Include="msXmlHelpers.cs" />
@@ -64,6 +70,9 @@
   <ItemGroup>
     <EmbeddedResource Include="msConnectionForm.resx">
       <DependentUpon>msConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="msSmtpConfigForm.resx">
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
