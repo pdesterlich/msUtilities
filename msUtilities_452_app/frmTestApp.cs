@@ -34,5 +34,29 @@ namespace msUtilities_452_app
         MessageBox.Show(connectionParams.getConnectionString());
       }
     }
+
+    private void btnSendMail_Click(object sender, EventArgs e)
+    {
+      msSendMail mailer = new msSendMail();
+      mailer.From = txtSendMailFrom.Text;
+      mailer.addTo(txtSendMailTo.Text);
+      mailer.Subject = txtSendMailSubject.Text;
+      mailer.Body = txtSendMailBody.Text;
+      mailer.smtpConfig.Host = txtSmtpHost.Text;
+      mailer.smtpConfig.Port = msConversion.stringToInt(txtSmtpPort.Text, 25);
+      mailer.smtpConfig.Username = txtSmtpUser.Text;
+      mailer.smtpConfig.Password = txtSmtpPassword.Text;
+      mailer.smtpConfig.EnableSSL = chkSmtpSSL.Checked;
+
+      string error = "";
+      if (mailer.Send(out error))
+      {
+        MessageBox.Show("messaggio inviato");
+      }
+      else
+      {
+        MessageBox.Show("ci sono errori: " + error);
+      }
+    }
   }
 }

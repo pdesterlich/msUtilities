@@ -53,6 +53,7 @@
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msMonth.cs" />
     <Compile Include="msProgressBar.cs" />
+    <Compile Include="msSendMail.cs" />
     <Compile Include="msSmtpConfig.cs" />
     <Compile Include="msStringCipher.cs" />
     <Compile Include="msWebRequest.cs" />
