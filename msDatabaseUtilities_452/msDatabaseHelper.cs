@@ -13,7 +13,7 @@ namespace msDatabaseUtilities
       DbConnection dbConn = getConnection(out error, connectionParams);
       if (dbConn == null)
       {
-        return "database non configurato correttamente\n" + error;
+        return Messages.databaseNotConfigured + "\n" + error;
       }
       else
       {
@@ -21,11 +21,11 @@ namespace msDatabaseUtilities
         {
           dbConn.Open();
           dbConn.Close();
-          return String.Format("connessione a {0}:{1} effettuata correttamente", connectionParams.host, connectionParams.database);
+          return String.Format(Messages.databaseConnectionTestResult, connectionParams.host, connectionParams.database);
         }
         catch (Exception err)
         {
-          return String.Format("impossibile connettersi a {0}:{1}\n{2}", connectionParams.host, connectionParams.database, err.Message);
+          return String.Format(Messages.databaseConnectionError, connectionParams.host, connectionParams.database, err.Message);
         }
       }
     }
