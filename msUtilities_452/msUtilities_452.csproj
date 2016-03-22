@@ -51,6 +51,7 @@
     <Compile Include="msConnectionParams.cs" />
     <Compile Include="msConversion.cs" />
     <Compile Include="msDateHelpers.cs" />
+    <Compile Include="msFtpUpload.cs" />
     <Compile Include="msMonth.cs" />
     <Compile Include="msProgressBar.cs" />
     <Compile Include="msSendMail.cs" />
