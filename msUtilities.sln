@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_452_test", "msU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_452_app", "msUtilities_452_app\msUtilities_452_app.csproj", "{8D8F9F43-9FC0-49D8-B148-49826C815FF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msDatabaseUtilities_452", "msDatabaseUtilities_452\msDatabaseUtilities_452.csproj", "{B616560F-E68C-4364-B394-160D9E9CD861}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8D8F9F43-9FC0-49D8-B148-49826C815FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D8F9F43-9FC0-49D8-B148-49826C815FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D8F9F43-9FC0-49D8-B148-49826C815FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B616560F-E68C-4364-B394-160D9E9CD861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B616560F-E68C-4364-B394-160D9E9CD861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B616560F-E68C-4364-B394-160D9E9CD861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B616560F-E68C-4364-B394-160D9E9CD861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
