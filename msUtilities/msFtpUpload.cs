@@ -8,13 +8,22 @@ namespace msUtilities
 {
   public class msFtpUpload
   {
-    public static void uploadFile(out string error, string host, string user, string password, string remoteFile, string localFile)
+    /// <summary>
+    /// upload a single file on a remote ftp server
+    /// </summary>
+    /// <param name="error">possible error message</param>
+    /// <param name="host">remote ftp host</param>
+    /// <param name="user">optional username</param>
+    /// <param name="password">optional password</param>
+    /// <param name="remotePath">optional remote path</param>
+    /// <param name="localFile">local file to upload</param>
+    public static void uploadFile(out string error, string host, string user, string password, string remotePath, string localFile)
     {
       error = "";
 
       if (!File.Exists(localFile))
       {
-        error = "il file locale non esiste";
+        error = Messages.ftpLocalFileMissing;
       }
       else
       {
@@ -23,7 +32,7 @@ namespace msUtilities
           int bufferSize = 2048;
 
           /* Create an FTP Request */
-          FtpWebRequest ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + remoteFile);
+          FtpWebRequest ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + remotePath);
           /* Log in to the FTP Server with the User Name and Password Provided */
           ftpRequest.Credentials = new NetworkCredential(user, password);
           /* When in doubt, use these options */
@@ -50,7 +59,7 @@ namespace msUtilities
           }
           catch (Exception err)
           {
-            error = String.Format("errore in upload file su {0}\n{1}", host, err.Message);
+            error = String.Format(Messages.ftpErrorUpload, host, err.Message);
           }
           /* Resource Cleanup */
           localFileStream.Close();
@@ -59,7 +68,7 @@ namespace msUtilities
         }
         catch (Exception err)
         {
-          error = String.Format("errore in upload file su {0}\n{1}", host, err.Message);
+          error = String.Format(Messages.ftpErrorGeneric, host, err.Message);
         }
 
       }

@@ -29,16 +29,16 @@
     private void InitializeComponent()
     {
       this.cboTipo = new System.Windows.Forms.ComboBox();
-      this.label1 = new System.Windows.Forms.Label();
+      this.labelType = new System.Windows.Forms.Label();
       this.txtHost = new System.Windows.Forms.TextBox();
       this.txtDatabase = new System.Windows.Forms.TextBox();
       this.txtPassword = new System.Windows.Forms.TextBox();
       this.txtUsername = new System.Windows.Forms.TextBox();
       this.btnShowPassword = new System.Windows.Forms.Button();
-      this.label2 = new System.Windows.Forms.Label();
-      this.label3 = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
-      this.label5 = new System.Windows.Forms.Label();
+      this.labelHost = new System.Windows.Forms.Label();
+      this.labelDatabase = new System.Windows.Forms.Label();
+      this.labelUsername = new System.Windows.Forms.Label();
+      this.labelPassword = new System.Windows.Forms.Label();
       this.btnOk = new System.Windows.Forms.Button();
       this.btnCancel = new System.Windows.Forms.Button();
       this.SuspendLayout();
@@ -52,15 +52,14 @@
       this.cboTipo.Size = new System.Drawing.Size(300, 21);
       this.cboTipo.TabIndex = 0;
       // 
-      // label1
+      // labelType
       // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(62, 15);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(24, 13);
-      this.label1.TabIndex = 1;
-      this.label1.Text = "tipo";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      this.labelType.Location = new System.Drawing.Point(12, 15);
+      this.labelType.Name = "labelType";
+      this.labelType.Size = new System.Drawing.Size(74, 13);
+      this.labelType.TabIndex = 1;
+      this.labelType.Text = "tipo";
+      this.labelType.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // txtHost
       // 
@@ -101,45 +100,41 @@
       this.btnShowPassword.UseVisualStyleBackColor = true;
       this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
       // 
-      // label2
+      // labelHost
       // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(59, 42);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(27, 13);
-      this.label2.TabIndex = 7;
-      this.label2.Text = "host";
-      this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      this.labelHost.Location = new System.Drawing.Point(12, 42);
+      this.labelHost.Name = "labelHost";
+      this.labelHost.Size = new System.Drawing.Size(74, 13);
+      this.labelHost.TabIndex = 7;
+      this.labelHost.Text = "host";
+      this.labelHost.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label3
+      // labelDatabase
       // 
-      this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(35, 68);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(51, 13);
-      this.label3.TabIndex = 8;
-      this.label3.Text = "database";
-      this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      this.labelDatabase.Location = new System.Drawing.Point(12, 68);
+      this.labelDatabase.Name = "labelDatabase";
+      this.labelDatabase.Size = new System.Drawing.Size(74, 13);
+      this.labelDatabase.TabIndex = 8;
+      this.labelDatabase.Text = "database";
+      this.labelDatabase.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label4
+      // labelUsername
       // 
-      this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(49, 94);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(37, 13);
-      this.label4.TabIndex = 9;
-      this.label4.Text = "utente";
-      this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      this.labelUsername.Location = new System.Drawing.Point(12, 94);
+      this.labelUsername.Name = "labelUsername";
+      this.labelUsername.Size = new System.Drawing.Size(74, 13);
+      this.labelUsername.TabIndex = 9;
+      this.labelUsername.Text = "utente";
+      this.labelUsername.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label5
+      // labelPassword
       // 
-      this.label5.AutoSize = true;
-      this.label5.Location = new System.Drawing.Point(34, 120);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(52, 13);
-      this.label5.TabIndex = 10;
-      this.label5.Text = "password";
-      this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      this.labelPassword.Location = new System.Drawing.Point(12, 120);
+      this.labelPassword.Name = "labelPassword";
+      this.labelPassword.Size = new System.Drawing.Size(74, 13);
+      this.labelPassword.TabIndex = 10;
+      this.labelPassword.Text = "password";
+      this.labelPassword.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // btnOk
       // 
@@ -170,16 +165,16 @@
       this.ClientSize = new System.Drawing.Size(404, 191);
       this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.btnOk);
-      this.Controls.Add(this.label5);
-      this.Controls.Add(this.label4);
-      this.Controls.Add(this.label3);
-      this.Controls.Add(this.label2);
+      this.Controls.Add(this.labelPassword);
+      this.Controls.Add(this.labelUsername);
+      this.Controls.Add(this.labelDatabase);
+      this.Controls.Add(this.labelHost);
       this.Controls.Add(this.btnShowPassword);
       this.Controls.Add(this.txtPassword);
       this.Controls.Add(this.txtUsername);
       this.Controls.Add(this.txtDatabase);
       this.Controls.Add(this.txtHost);
-      this.Controls.Add(this.label1);
+      this.Controls.Add(this.labelType);
       this.Controls.Add(this.cboTipo);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
       this.Name = "msConnectionForm";
@@ -193,16 +188,16 @@
     #endregion
 
     private System.Windows.Forms.ComboBox cboTipo;
-    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label labelType;
     private System.Windows.Forms.TextBox txtHost;
     private System.Windows.Forms.TextBox txtDatabase;
     private System.Windows.Forms.TextBox txtPassword;
     private System.Windows.Forms.TextBox txtUsername;
     private System.Windows.Forms.Button btnShowPassword;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.Label labelHost;
+    private System.Windows.Forms.Label labelDatabase;
+    private System.Windows.Forms.Label labelUsername;
+    private System.Windows.Forms.Label labelPassword;
     private System.Windows.Forms.Button btnOk;
     private System.Windows.Forms.Button btnCancel;
   }

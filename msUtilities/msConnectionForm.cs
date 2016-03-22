@@ -11,6 +11,16 @@ namespace msUtilities
 
       this.Text = title;
 
+      btnShowPassword.Text = Messages.buttonShow;
+      btnOk.Text = Messages.buttonOk;
+      btnCancel.Text = Messages.buttonCancel;
+
+      labelType.Text = Messages.labelConnectionType;
+      labelHost.Text = Messages.labelConnectionHost;
+      labelDatabase.Text = Messages.labelConnectionDatabase;
+      labelUsername.Text = Messages.labelConnectionUsername;
+      labelPassword.Text = Messages.labelConnectionPassword;
+
       cboTipo.SelectedIndex = cboTipo.Items.IndexOf(connectionParams.databaseType.ToString());
       txtHost.Text = connectionParams.host;
       txtDatabase.Text = connectionParams.database;
@@ -43,12 +53,12 @@ namespace msUtilities
       if (txtPassword.UseSystemPasswordChar)
       {
         txtPassword.UseSystemPasswordChar = false;
-        (sender as Button).Text = "nascondi";
+        (sender as Button).Text = Messages.buttonHide;
       }
       else
       {
         txtPassword.UseSystemPasswordChar = true;
-        (sender as Button).Text = "mostra";
+        (sender as Button).Text = Messages.buttonShow;
       }
     }
   }
