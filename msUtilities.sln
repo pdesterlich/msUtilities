@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities", "msUtilities\msUtilities.csproj", "{A7B2CFA3-8E60-478E-A01A-5B356A159267}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_20", "msUtilities\msUtilities_20.csproj", "{A7B2CFA3-8E60-478E-A01A-5B356A159267}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_452", "msUtilities_452\msUtilities_452.csproj", "{152B81CC-0AD4-4F14-8500-712ABCFB63AA}"
 EndProject
