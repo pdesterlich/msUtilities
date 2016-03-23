@@ -124,6 +124,15 @@ namespace msUtilities {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a database not supported.
+        /// </summary>
+        public static string databaseNotSupported {
+            get {
+                return ResourceManager.GetString("databaseNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a error uploading file {0}\n{1}.
         /// </summary>
         public static string ftpErrorGeneric {

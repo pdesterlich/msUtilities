@@ -138,6 +138,9 @@
   <data name="databaseNotConfigured" xml:space="preserve">
     <value>database not correctly configured</value>
   </data>
+  <data name="databaseNotSupported" xml:space="preserve">
+    <value>database not supported</value>
+  </data>
   <data name="ftpErrorGeneric" xml:space="preserve">
     <value>error uploading file {0}\n{1}</value>
   </data>

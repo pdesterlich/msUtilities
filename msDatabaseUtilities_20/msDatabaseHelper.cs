@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Common;
 using System.Data.SqlClient;
-using FirebirdSql.Data.FirebirdClient;
 
 namespace msUtilities.Database
 {
@@ -40,7 +39,8 @@ namespace msUtilities.Database
         switch (connectionParams.databaseType)
         {
           case DatabaseType.Firebird:
-            dbConn = new FbConnection(connectionParams.getConnectionString());
+            error = Messages.databaseNotSupported;
+            // NOT SUPPORTED (no Firebird Sql dot Net provider for dot Net 2.0)
             break;
           case DatabaseType.SqlServer:
             dbConn = new SqlConnection(connectionParams.getConnectionString());
@@ -65,7 +65,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-          dbCommand = new FbCommand(commandText, (FbConnection)dbConn);
+          // NOT SUPPORTED (no Firebird Sql dot Net provider for dot Net 2.0)
           break;
         case DatabaseType.SqlServer:
           dbCommand = new SqlCommand(commandText, (SqlConnection)dbConn);
@@ -84,7 +84,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-          dbParam = new FbParameter(paramName, paramValue);
+          // NOT SUPPORTED (no Firebird Sql dot Net provider for dot Net 2.0)
           break;
         case DatabaseType.SqlServer:
           dbParam = new SqlParameter(paramName, paramValue);
