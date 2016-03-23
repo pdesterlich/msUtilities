@@ -59,6 +59,10 @@
     <Compile Include="msSmtpConfigTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\msDatabaseUtilities_452\msDatabaseUtilities_452.csproj">
+      <Project>{b616560f-e68c-4364-b394-160d9e9cd861}</Project>
+      <Name>msDatabaseUtilities_452</Name>
+    </ProjectReference>
     <ProjectReference Include="..\msUtilities_452\msUtilities_452.csproj">
       <Project>{152b81cc-0ad4-4f14-8500-712abcfb63aa}</Project>
       <Name>msUtilities_452</Name>

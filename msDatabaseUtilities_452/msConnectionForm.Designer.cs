@@ -1,4 +1,4 @@
-﻿namespace msDatabaseUtilities
+﻿namespace msUtilities.Database
 {
   partial class msConnectionForm
   {

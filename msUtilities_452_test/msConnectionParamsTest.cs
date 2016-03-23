@@ -2,6 +2,7 @@
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using msUtilities;
+using msUtilities.Database;
 
 namespace msUtilities_452_test
 {
@@ -12,7 +13,7 @@ namespace msUtilities_452_test
     public void TestConnectionStringGenerationFirebird()
     {
       msConnectionParams conn = new msConnectionParams(
-        DatabaseType.dtFirebird,
+        DatabaseType.Firebird,
         "user",
         "password",
         "host",
@@ -29,7 +30,7 @@ namespace msUtilities_452_test
     public void TestConnectionStringGenerationFirebirdEmpty()
     {
       var conn = new msConnectionParams();
-      conn.databaseType = DatabaseType.dtFirebird;
+      conn.databaseType = DatabaseType.Firebird;
       conn.username = "user";
       conn.password = "password";
       conn.host = "host";
@@ -45,7 +46,7 @@ namespace msUtilities_452_test
     public void TestConnectionStringGenerationSqlServer()
     {
       msConnectionParams conn = new msConnectionParams(
-        DatabaseType.dtSqlServer,
+        DatabaseType.SqlServer,
         "user",
         "password",
         "host",
@@ -62,7 +63,7 @@ namespace msUtilities_452_test
     public void TestConnectionStringGenerationOther()
     {
       msConnectionParams conn = new msConnectionParams(
-        DatabaseType.dtOther,
+        DatabaseType.Other,
         "user",
         "password",
         "host",
@@ -80,7 +81,7 @@ namespace msUtilities_452_test
     {
       string enctryptionKey = "key";
       msConnectionParams conn = new msConnectionParams(
-        DatabaseType.dtFirebird,
+        DatabaseType.Firebird,
         "user",
         "password",
         "host",
@@ -103,7 +104,7 @@ namespace msUtilities_452_test
 
       XmlDocument xml = new XmlDocument();
       XmlElement xmlElement = xml.CreateElement("connection");
-      xmlElement.SetAttribute("databaseType", "dtFirebird");
+      xmlElement.SetAttribute("databaseType", "Firebird");
       xmlElement.SetAttribute("databaseTypeCustom", "");
       xmlElement.SetAttribute("host", "host");
       xmlElement.SetAttribute("database", "database");
@@ -112,7 +113,7 @@ namespace msUtilities_452_test
 
       msConnectionParams conn = new msConnectionParams(xmlElement, encryptionKey);
 
-      Assert.AreEqual(DatabaseType.dtFirebird, conn.databaseType);
+      Assert.AreEqual(DatabaseType.Firebird, conn.databaseType);
       Assert.AreEqual("password", conn.password);
     }
   }

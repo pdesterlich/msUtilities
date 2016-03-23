@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace msDatabaseUtilities
+namespace msUtilities.Database
 {
   public partial class msConnectionForm : Form
   {

@@ -47,13 +47,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Include="msConnectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="msConnectionForm.Designer.cs">
-      <DependentUpon>msConnectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="msConnectionParams.cs" />
     <Compile Include="msConversion.cs" />
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msFtpUpload.cs" />
@@ -78,9 +71,6 @@
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="msConnectionForm.resx">
-      <DependentUpon>msConnectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="msSmtpConfigForm.resx">
       <DependentUpon>msSmtpConfigForm.cs</DependentUpon>

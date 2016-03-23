@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using msUtilities;
+using msUtilities.Database;
 
 namespace msUtilities_452_app
 {
@@ -26,7 +27,7 @@ namespace msUtilities_452_app
     {
       var connectionForm = new msConnectionForm();
       var connectionParams = new msConnectionParams();
-      connectionParams.databaseType = DatabaseType.dtSqlServer;
+      connectionParams.databaseType = DatabaseType.SqlServer;
       connectionParams.database = "database";
       if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
       {

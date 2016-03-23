@@ -2,7 +2,7 @@
 using System.Xml;
 using msUtilities;
 
-namespace msDatabaseUtilities
+namespace msUtilities.Database
 {
   /// <summary>
   /// currently supported database types (for connection string generation)

@@ -7,7 +7,7 @@
     <ProjectGuid>{B616560F-E68C-4364-B394-160D9E9CD861}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>msDatabaseUtilities</RootNamespace>
+    <RootNamespace>msUtilities.Database</RootNamespace>
     <AssemblyName>msDatabaseUtilities</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
