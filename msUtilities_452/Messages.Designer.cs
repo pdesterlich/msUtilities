@@ -97,6 +97,33 @@ namespace msUtilities {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a error connecting to {0}:{1}\n{2}.
+        /// </summary>
+        public static string databaseConnectionError {
+            get {
+                return ResourceManager.GetString("databaseConnectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0}:{1} succesfully connected.
+        /// </summary>
+        public static string databaseConnectionTestResult {
+            get {
+                return ResourceManager.GetString("databaseConnectionTestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a database not correctly configured.
+        /// </summary>
+        public static string databaseNotConfigured {
+            get {
+                return ResourceManager.GetString("databaseNotConfigured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a error uploading file {0}\n{1}.
         /// </summary>
         public static string ftpErrorGeneric {

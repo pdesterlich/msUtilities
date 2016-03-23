@@ -129,6 +129,15 @@
   <data name="buttonShow" xml:space="preserve">
     <value>show</value>
   </data>
+  <data name="databaseConnectionError" xml:space="preserve">
+    <value>error connecting to {0}:{1}\n{2}</value>
+  </data>
+  <data name="databaseConnectionTestResult" xml:space="preserve">
+    <value>{0}:{1} succesfully connected</value>
+  </data>
+  <data name="databaseNotConfigured" xml:space="preserve">
+    <value>database not correctly configured</value>
+  </data>
   <data name="ftpErrorGeneric" xml:space="preserve">
     <value>error uploading file {0}\n{1}</value>
   </data>

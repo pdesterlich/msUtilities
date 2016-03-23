@@ -124,7 +124,7 @@
       this.labelUsername.Name = "labelUsername";
       this.labelUsername.Size = new System.Drawing.Size(74, 13);
       this.labelUsername.TabIndex = 9;
-      this.labelUsername.Text = "utente";
+      this.labelUsername.Text = "user";
       this.labelUsername.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // labelPassword
