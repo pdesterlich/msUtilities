@@ -22,7 +22,7 @@ namespace msUtilities {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace msUtilities {
         ///   Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("msUtilities.Messages", typeof(Messages).Assembly);
@@ -51,7 +51,7 @@ namespace msUtilities {
         ///   ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a cancel.
         /// </summary>
-        internal static string buttonCancel {
+        public static string buttonCancel {
             get {
                 return ResourceManager.GetString("buttonCancel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a hide.
         /// </summary>
-        internal static string buttonHide {
+        public static string buttonHide {
             get {
                 return ResourceManager.GetString("buttonHide", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a ok.
         /// </summary>
-        internal static string buttonOk {
+        public static string buttonOk {
             get {
                 return ResourceManager.GetString("buttonOk", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a show.
         /// </summary>
-        internal static string buttonShow {
+        public static string buttonShow {
             get {
                 return ResourceManager.GetString("buttonShow", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a error uploading file {0}\n{1}.
         /// </summary>
-        internal static string ftpErrorGeneric {
+        public static string ftpErrorGeneric {
             get {
                 return ResourceManager.GetString("ftpErrorGeneric", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a error uploading file {0}\n{1}.
         /// </summary>
-        internal static string ftpErrorUpload {
+        public static string ftpErrorUpload {
             get {
                 return ResourceManager.GetString("ftpErrorUpload", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a local file does not exists.
         /// </summary>
-        internal static string ftpLocalFileMissing {
+        public static string ftpLocalFileMissing {
             get {
                 return ResourceManager.GetString("ftpLocalFileMissing", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a database.
         /// </summary>
-        internal static string labelConnectionDatabase {
+        public static string labelConnectionDatabase {
             get {
                 return ResourceManager.GetString("labelConnectionDatabase", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a host.
         /// </summary>
-        internal static string labelConnectionHost {
+        public static string labelConnectionHost {
             get {
                 return ResourceManager.GetString("labelConnectionHost", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a password.
         /// </summary>
-        internal static string labelConnectionPassword {
+        public static string labelConnectionPassword {
             get {
                 return ResourceManager.GetString("labelConnectionPassword", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a type.
         /// </summary>
-        internal static string labelConnectionType {
+        public static string labelConnectionType {
             get {
                 return ResourceManager.GetString("labelConnectionType", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace msUtilities {
         /// <summary>
         ///   Cerca una stringa localizzata simile a username.
         /// </summary>
-        internal static string labelConnectionUsername {
+        public static string labelConnectionUsername {
             get {
                 return ResourceManager.GetString("labelConnectionUsername", resourceCulture);
             }

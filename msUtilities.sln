@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_452_app", "msUt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msDatabaseUtilities_452", "msDatabaseUtilities_452\msDatabaseUtilities_452.csproj", "{B616560F-E68C-4364-B394-160D9E9CD861}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msDatabaseUtilities_20", "msDatabaseUtilities_20\msDatabaseUtilities_20.csproj", "{59F7C59B-801B-4704-A073-75DA7F6BEAD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B616560F-E68C-4364-B394-160D9E9CD861}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B616560F-E68C-4364-B394-160D9E9CD861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B616560F-E68C-4364-B394-160D9E9CD861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F7C59B-801B-4704-A073-75DA7F6BEAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F7C59B-801B-4704-A073-75DA7F6BEAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F7C59B-801B-4704-A073-75DA7F6BEAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F7C59B-801B-4704-A073-75DA7F6BEAD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

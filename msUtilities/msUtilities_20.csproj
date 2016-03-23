@@ -71,7 +71,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Messages.it.resx" />
     <EmbeddedResource Include="Messages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="msConnectionForm.resx">
