@@ -32,6 +32,7 @@
       this.btnTestMsConnectionFormsSqlServer = new System.Windows.Forms.Button();
       this.tabTests = new System.Windows.Forms.TabControl();
       this.tabMain = new System.Windows.Forms.TabPage();
+      this.button1 = new System.Windows.Forms.Button();
       this.tabSendMail = new System.Windows.Forms.TabPage();
       this.label8 = new System.Windows.Forms.Label();
       this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
       this.txtSmtpPassword = new System.Windows.Forms.TextBox();
       this.txtSmtpUser = new System.Windows.Forms.TextBox();
       this.txtSmtpHost = new System.Windows.Forms.TextBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.buttonTestMessages = new System.Windows.Forms.Button();
       this.tabTests.SuspendLayout();
       this.tabMain.SuspendLayout();
       this.tabSendMail.SuspendLayout();
@@ -93,6 +94,7 @@
       // tabMain
       // 
       this.tabMain.BackColor = System.Drawing.SystemColors.Control;
+      this.tabMain.Controls.Add(this.buttonTestMessages);
       this.tabMain.Controls.Add(this.button1);
       this.tabMain.Controls.Add(this.btnTestMsConnectionForms);
       this.tabMain.Controls.Add(this.btnTestMsConnectionFormsSqlServer);
@@ -102,6 +104,16 @@
       this.tabMain.Size = new System.Drawing.Size(652, 361);
       this.tabMain.TabIndex = 0;
       this.tabMain.Text = "Main";
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(6, 64);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(200, 23);
+      this.button1.TabIndex = 2;
+      this.button1.Text = "test msSmtpConfigForm";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // tabSendMail
       // 
@@ -282,15 +294,15 @@
       this.txtSmtpHost.Size = new System.Drawing.Size(300, 20);
       this.txtSmtpHost.TabIndex = 0;
       // 
-      // button1
+      // buttonTestMessages
       // 
-      this.button1.Location = new System.Drawing.Point(6, 64);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(200, 23);
-      this.button1.TabIndex = 2;
-      this.button1.Text = "test msSmtpConfigForm";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.buttonTestMessages.Location = new System.Drawing.Point(6, 93);
+      this.buttonTestMessages.Name = "buttonTestMessages";
+      this.buttonTestMessages.Size = new System.Drawing.Size(200, 23);
+      this.buttonTestMessages.TabIndex = 3;
+      this.buttonTestMessages.Text = "test Messages";
+      this.buttonTestMessages.UseVisualStyleBackColor = true;
+      this.buttonTestMessages.Click += new System.EventHandler(this.buttonTestMessages_Click);
       // 
       // frmTestApp
       // 
@@ -334,6 +346,7 @@
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Button btnSendMail;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button buttonTestMessages;
   }
 }
 

@@ -53,6 +53,7 @@
     <Compile Include="msSmtpConfigForm.designer.cs">
       <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="msText.cs" />
     <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
     <Compile Include="msConversion.cs" />

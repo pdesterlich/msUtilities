@@ -70,5 +70,12 @@ namespace msUtilities_452_app
         MessageBox.Show(smtpConfig.Host);
       }
     }
+
+    private void buttonTestMessages_Click(object sender, EventArgs e)
+    {
+      // String message = String.Format(Messages.databaseConnectionError, "some host", "some database", "some error").Replace("\\n", Environment.NewLine);
+      String message = msText.newLine(String.Format(Messages.databaseConnectionError, "some host", "some database", "some error"));
+      MessageBox.Show(message);
+    }
   }
 }

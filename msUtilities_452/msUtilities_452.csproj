@@ -61,6 +61,7 @@
       <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="msStringCipher.cs" />
+    <Compile Include="msText.cs" />
     <Compile Include="msWebRequest.cs" />
     <Compile Include="msXmlHelpers.cs" />
     <Compile Include="msYear.cs" />
