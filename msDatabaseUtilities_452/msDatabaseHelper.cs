@@ -58,6 +58,25 @@ namespace msUtilities.Database
       return dbConn;
     }
 
+    public static DbCommand getCommand(msConnectionParams connectionParams)
+    {
+      DbCommand dbCommand = null;
+
+      switch (connectionParams.databaseType)
+      {
+        case DatabaseType.Firebird:
+          dbCommand = new FbCommand();
+          break;
+        case DatabaseType.SqlServer:
+          dbCommand = new SqlCommand();
+          break;
+        default:
+          break;
+      }
+
+      return dbCommand;
+    }
+
     public static DbCommand getCommand(msConnectionParams connectionParams, DbConnection dbConn, string commandText)
     {
       DbCommand dbCommand = null;
@@ -75,6 +94,25 @@ namespace msUtilities.Database
       }
 
       return dbCommand;
+    }
+
+    public static DbParameter getParameter(msConnectionParams connectionParams)
+    {
+      DbParameter dbParam = null;
+
+      switch (connectionParams.databaseType)
+      {
+        case DatabaseType.Firebird:
+          dbParam = new FbParameter();
+          break;
+        case DatabaseType.SqlServer:
+          dbParam = new SqlParameter();
+          break;
+        default:
+          break;
+      }
+
+      return dbParam;
     }
 
     public static DbParameter getParameter(msConnectionParams connectionParams, string paramName, object paramValue)
