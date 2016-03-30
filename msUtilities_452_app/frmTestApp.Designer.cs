@@ -32,6 +32,7 @@
       this.btnTestMsConnectionFormsSqlServer = new System.Windows.Forms.Button();
       this.tabTests = new System.Windows.Forms.TabControl();
       this.tabMain = new System.Windows.Forms.TabPage();
+      this.buttonTestMessages = new System.Windows.Forms.Button();
       this.button1 = new System.Windows.Forms.Button();
       this.tabSendMail = new System.Windows.Forms.TabPage();
       this.label8 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
       this.txtSmtpPassword = new System.Windows.Forms.TextBox();
       this.txtSmtpUser = new System.Windows.Forms.TextBox();
       this.txtSmtpHost = new System.Windows.Forms.TextBox();
-      this.buttonTestMessages = new System.Windows.Forms.Button();
+      this.btnTestMinutesToDateTime = new System.Windows.Forms.Button();
       this.tabTests.SuspendLayout();
       this.tabMain.SuspendLayout();
       this.tabSendMail.SuspendLayout();
@@ -94,6 +95,7 @@
       // tabMain
       // 
       this.tabMain.BackColor = System.Drawing.SystemColors.Control;
+      this.tabMain.Controls.Add(this.btnTestMinutesToDateTime);
       this.tabMain.Controls.Add(this.buttonTestMessages);
       this.tabMain.Controls.Add(this.button1);
       this.tabMain.Controls.Add(this.btnTestMsConnectionForms);
@@ -104,6 +106,16 @@
       this.tabMain.Size = new System.Drawing.Size(652, 361);
       this.tabMain.TabIndex = 0;
       this.tabMain.Text = "Main";
+      // 
+      // buttonTestMessages
+      // 
+      this.buttonTestMessages.Location = new System.Drawing.Point(6, 93);
+      this.buttonTestMessages.Name = "buttonTestMessages";
+      this.buttonTestMessages.Size = new System.Drawing.Size(200, 23);
+      this.buttonTestMessages.TabIndex = 3;
+      this.buttonTestMessages.Text = "test Messages";
+      this.buttonTestMessages.UseVisualStyleBackColor = true;
+      this.buttonTestMessages.Click += new System.EventHandler(this.buttonTestMessages_Click);
       // 
       // button1
       // 
@@ -294,15 +306,15 @@
       this.txtSmtpHost.Size = new System.Drawing.Size(300, 20);
       this.txtSmtpHost.TabIndex = 0;
       // 
-      // buttonTestMessages
+      // btnTestMinutesToDateTime
       // 
-      this.buttonTestMessages.Location = new System.Drawing.Point(6, 93);
-      this.buttonTestMessages.Name = "buttonTestMessages";
-      this.buttonTestMessages.Size = new System.Drawing.Size(200, 23);
-      this.buttonTestMessages.TabIndex = 3;
-      this.buttonTestMessages.Text = "test Messages";
-      this.buttonTestMessages.UseVisualStyleBackColor = true;
-      this.buttonTestMessages.Click += new System.EventHandler(this.buttonTestMessages_Click);
+      this.btnTestMinutesToDateTime.Location = new System.Drawing.Point(6, 122);
+      this.btnTestMinutesToDateTime.Name = "btnTestMinutesToDateTime";
+      this.btnTestMinutesToDateTime.Size = new System.Drawing.Size(200, 23);
+      this.btnTestMinutesToDateTime.TabIndex = 4;
+      this.btnTestMinutesToDateTime.Text = "test minutesToDateTime";
+      this.btnTestMinutesToDateTime.UseVisualStyleBackColor = true;
+      this.btnTestMinutesToDateTime.Click += new System.EventHandler(this.btnTestMinutesToDateTime_Click);
       // 
       // frmTestApp
       // 
@@ -347,6 +359,7 @@
     private System.Windows.Forms.Button btnSendMail;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Button buttonTestMessages;
+    private System.Windows.Forms.Button btnTestMinutesToDateTime;
   }
 }
 

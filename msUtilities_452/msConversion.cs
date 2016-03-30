@@ -43,5 +43,17 @@ namespace msUtilities
       else
         return defaultValue;
     }
+
+    /// <summary>
+    /// converts an integer representation of time (minutes elapsed from midnight) in a DateTime value
+    /// </summary>
+    /// <param name="minutes">number of minutes elapsed from midnight</param>
+    /// <param name="date">reference date (default today)</param>
+    /// <returns>datetime</returns>
+    public static DateTime minutesToDateTime(int minutes, DateTime date = default(DateTime))
+    {
+      if (date == DateTime.MinValue) date = DateTime.Now;
+      return new DateTime(date.Year, date.Month, date.Day, minutes / 60, minutes % 60, 0);
+    }
   }
 }

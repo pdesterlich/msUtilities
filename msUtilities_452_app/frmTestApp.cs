@@ -77,5 +77,10 @@ namespace msUtilities_452_app
       String message = msText.newLine(String.Format(Messages.databaseConnectionError, "some host", "some database", "some error"));
       MessageBox.Show(message);
     }
+
+    private void btnTestMinutesToDateTime_Click(object sender, EventArgs e)
+    {
+      MessageBox.Show(msConversion.minutesToDateTime(1000).ToString());
+    }
   }
 }
