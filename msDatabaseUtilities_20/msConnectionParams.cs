@@ -119,7 +119,9 @@ namespace msUtilities.Database
     /// <param name="xmlElement">XmlElement to read attributes from</param>
     public void FromXml(XmlElement xmlElement)
     {
-      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird"));
+      string type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
+      if (type.StartsWith("dt")) type = type.Remove(0, 2);
+      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), type);
       this.databaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
       this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
       this.database = msXmlHelpers.attribute(xmlElement, "database", "");

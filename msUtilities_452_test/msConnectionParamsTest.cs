@@ -116,5 +116,25 @@ namespace msUtilities_452_test
       Assert.AreEqual(DatabaseType.Firebird, conn.databaseType);
       Assert.AreEqual("password", conn.password);
     }
+
+    [TestMethod]
+    public void TestConnectionParamsFromXmlOld()
+    {
+      string encryptionKey = "key";
+
+      XmlDocument xml = new XmlDocument();
+      XmlElement xmlElement = xml.CreateElement("connection");
+      xmlElement.SetAttribute("databaseType", "dtFirebird");
+      xmlElement.SetAttribute("databaseTypeCustom", "");
+      xmlElement.SetAttribute("host", "host");
+      xmlElement.SetAttribute("database", "database");
+      xmlElement.SetAttribute("username", "username");
+      xmlElement.SetAttribute("password", msStringCipher.Encrypt("password", encryptionKey));
+
+      msConnectionParams conn = new msConnectionParams(xmlElement, encryptionKey);
+
+      Assert.AreEqual(DatabaseType.Firebird, conn.databaseType);
+      Assert.AreEqual("password", conn.password);
+    }
   }
 }

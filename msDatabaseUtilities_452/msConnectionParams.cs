@@ -129,7 +129,9 @@ namespace msUtilities.Database
     /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is)</param>
     public void FromXml(XmlElement xmlElement, string encryptionKey = "")
     {
-      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird"));
+      string type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
+      if (type.StartsWith("dt")) type = type.Remove(0, 2);
+      this.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), type);
       this.databaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
       this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
       this.database = msXmlHelpers.attribute(xmlElement, "database", "");
