@@ -2,7 +2,10 @@
 
 namespace msUtilities
 {
-  public class msConversion
+  /// <summary>
+  /// repository for conversion functions
+  /// </summary>
+  public static class msConversion
   {
     /// <summary>
     /// converts a c# DateTime object to a Unix TimeStamp
