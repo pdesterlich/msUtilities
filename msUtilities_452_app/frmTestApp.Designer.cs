@@ -32,6 +32,7 @@
       this.btnTestMsConnectionFormsSqlServer = new System.Windows.Forms.Button();
       this.tabTests = new System.Windows.Forms.TabControl();
       this.tabMain = new System.Windows.Forms.TabPage();
+      this.btnTestMinutesToDateTime = new System.Windows.Forms.Button();
       this.buttonTestMessages = new System.Windows.Forms.Button();
       this.button1 = new System.Windows.Forms.Button();
       this.tabSendMail = new System.Windows.Forms.TabPage();
@@ -53,7 +54,8 @@
       this.txtSmtpPassword = new System.Windows.Forms.TextBox();
       this.txtSmtpUser = new System.Windows.Forms.TextBox();
       this.txtSmtpHost = new System.Windows.Forms.TextBox();
-      this.btnTestMinutesToDateTime = new System.Windows.Forms.Button();
+      this.txtStringToFloat = new System.Windows.Forms.TextBox();
+      this.lblStringToFloat = new System.Windows.Forms.Label();
       this.tabTests.SuspendLayout();
       this.tabMain.SuspendLayout();
       this.tabSendMail.SuspendLayout();
@@ -95,6 +97,8 @@
       // tabMain
       // 
       this.tabMain.BackColor = System.Drawing.SystemColors.Control;
+      this.tabMain.Controls.Add(this.lblStringToFloat);
+      this.tabMain.Controls.Add(this.txtStringToFloat);
       this.tabMain.Controls.Add(this.btnTestMinutesToDateTime);
       this.tabMain.Controls.Add(this.buttonTestMessages);
       this.tabMain.Controls.Add(this.button1);
@@ -106,6 +110,16 @@
       this.tabMain.Size = new System.Drawing.Size(652, 361);
       this.tabMain.TabIndex = 0;
       this.tabMain.Text = "Main";
+      // 
+      // btnTestMinutesToDateTime
+      // 
+      this.btnTestMinutesToDateTime.Location = new System.Drawing.Point(6, 122);
+      this.btnTestMinutesToDateTime.Name = "btnTestMinutesToDateTime";
+      this.btnTestMinutesToDateTime.Size = new System.Drawing.Size(200, 23);
+      this.btnTestMinutesToDateTime.TabIndex = 4;
+      this.btnTestMinutesToDateTime.Text = "test minutesToDateTime";
+      this.btnTestMinutesToDateTime.UseVisualStyleBackColor = true;
+      this.btnTestMinutesToDateTime.Click += new System.EventHandler(this.btnTestMinutesToDateTime_Click);
       // 
       // buttonTestMessages
       // 
@@ -306,15 +320,22 @@
       this.txtSmtpHost.Size = new System.Drawing.Size(300, 20);
       this.txtSmtpHost.TabIndex = 0;
       // 
-      // btnTestMinutesToDateTime
+      // txtStringToFloat
       // 
-      this.btnTestMinutesToDateTime.Location = new System.Drawing.Point(6, 122);
-      this.btnTestMinutesToDateTime.Name = "btnTestMinutesToDateTime";
-      this.btnTestMinutesToDateTime.Size = new System.Drawing.Size(200, 23);
-      this.btnTestMinutesToDateTime.TabIndex = 4;
-      this.btnTestMinutesToDateTime.Text = "test minutesToDateTime";
-      this.btnTestMinutesToDateTime.UseVisualStyleBackColor = true;
-      this.btnTestMinutesToDateTime.Click += new System.EventHandler(this.btnTestMinutesToDateTime_Click);
+      this.txtStringToFloat.Location = new System.Drawing.Point(6, 151);
+      this.txtStringToFloat.Name = "txtStringToFloat";
+      this.txtStringToFloat.Size = new System.Drawing.Size(100, 20);
+      this.txtStringToFloat.TabIndex = 5;
+      this.txtStringToFloat.TextChanged += new System.EventHandler(this.txtStringToFloat_TextChanged);
+      // 
+      // lblStringToFloat
+      // 
+      this.lblStringToFloat.AutoSize = true;
+      this.lblStringToFloat.Location = new System.Drawing.Point(112, 154);
+      this.lblStringToFloat.Name = "lblStringToFloat";
+      this.lblStringToFloat.Size = new System.Drawing.Size(72, 13);
+      this.lblStringToFloat.TabIndex = 6;
+      this.lblStringToFloat.Text = "String to Float";
       // 
       // frmTestApp
       // 
@@ -326,6 +347,7 @@
       this.Text = "msUtilites Test App";
       this.tabTests.ResumeLayout(false);
       this.tabMain.ResumeLayout(false);
+      this.tabMain.PerformLayout();
       this.tabSendMail.ResumeLayout(false);
       this.tabSendMail.PerformLayout();
       this.ResumeLayout(false);
@@ -360,6 +382,8 @@
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Button buttonTestMessages;
     private System.Windows.Forms.Button btnTestMinutesToDateTime;
+    private System.Windows.Forms.Label lblStringToFloat;
+    private System.Windows.Forms.TextBox txtStringToFloat;
   }
 }
 

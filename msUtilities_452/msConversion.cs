@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace msUtilities
 {
@@ -41,6 +42,7 @@ namespace msUtilities
     public static float stringToFloat(String value, float defaultValue)
     {
       float j;
+
       if (float.TryParse(value, out j))
         return j;
       else

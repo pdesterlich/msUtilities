@@ -82,5 +82,10 @@ namespace msUtilities_452_app
     {
       MessageBox.Show(msConversion.minutesToDateTime(1000).ToString());
     }
+
+    private void txtStringToFloat_TextChanged(object sender, EventArgs e)
+    {
+      lblStringToFloat.Text = "String to Float: " + msConversion.stringToFloat((sender as TextBox).Text, 0).ToString();
+    }
   }
 }

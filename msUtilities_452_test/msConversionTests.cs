@@ -2,6 +2,7 @@
 using msUtilities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace msUtilities.Tests
     [TestMethod()]
     public void stringToFloatTest()
     {
-      var actual = msConversion.stringToFloat("12,1", 0);
+      var actual = msConversion.stringToFloat("12.1", 0);
       var expected = 12.1;
 
       Assert.AreEqual(expected, actual, 0.01);
