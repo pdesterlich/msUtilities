@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace msUtilities
 {
@@ -42,6 +43,8 @@ namespace msUtilities
     public static float stringToFloat(String value, float defaultValue)
     {
       float j;
+
+      value = value.Replace(",", ".");
 
       if (float.TryParse(value, out j))
         return j;
