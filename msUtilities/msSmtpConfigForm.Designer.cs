@@ -191,7 +191,9 @@
       this.Controls.Add(this.txtPassword);
       this.Controls.Add(this.txtUsername);
       this.Controls.Add(this.txtHost);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
       this.Name = "msSmtpConfigForm";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "msSmtpConfigForm";
       this.ResumeLayout(false);
       this.PerformLayout();
