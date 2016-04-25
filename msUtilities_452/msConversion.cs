@@ -44,7 +44,8 @@ namespace msUtilities
     {
       float j;
 
-      value = value.Replace(",", ".");
+      value = value.Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+      value = value.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
 
       if (float.TryParse(value, out j))
         return j;
