@@ -14,7 +14,8 @@ namespace msUtilities
     private MailMessage _message = new MailMessage();
 
     public msSmtpConfig smtpConfig { get; set; } = new msSmtpConfig();
-    public string From {
+    public string From
+    {
       get { return this._message.From.ToString(); }
       set { this._message.From = new MailAddress(value); }
     }
