@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Le informazioni generali relative a un assembly sono controllate dal seguente 
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
-[assembly: AssemblyTitle("msUtilities")]
+[assembly: AssemblyTitle("msUtilities.20")]
 [assembly: AssemblyDescription("a collection of common functions & classes for c# projects")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Moorea Software")]
-[assembly: AssemblyProduct("msUtilities")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyProduct("msUtilities.20")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
