@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>msUtilities.Database</RootNamespace>
-    <AssemblyName>msDatabaseUtilities</AssemblyName>
+    <AssemblyName>msUtilities.Database.452</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -57,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\msUtilities_452\msUtilities_452.csproj">
+    <ProjectReference Include="..\msUtilities_452\msUtilities.452.csproj">
       <Project>{152b81cc-0ad4-4f14-8500-712abcfb63aa}</Project>
-      <Name>msUtilities_452</Name>
+      <Name>msUtilities.452</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
