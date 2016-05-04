@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\msUtilities_452\msUtilities.452.csproj">
+    <ProjectReference Include="..\msUtilities.452\msUtilities.452.csproj">
       <Project>{152b81cc-0ad4-4f14-8500-712abcfb63aa}</Project>
       <Name>msUtilities.452</Name>
     </ProjectReference>

@@ -80,11 +80,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\msDatabaseUtilities_452\msUtilities.Database.452.csproj">
+    <ProjectReference Include="..\msUtilities.Database.452\msUtilities.Database.452.csproj">
       <Project>{b616560f-e68c-4364-b394-160d9e9cd861}</Project>
       <Name>msUtilities.Database.452</Name>
     </ProjectReference>
-    <ProjectReference Include="..\msUtilities_452\msUtilities.452.csproj">
+    <ProjectReference Include="..\msUtilities.452\msUtilities.452.csproj">
       <Project>{152b81cc-0ad4-4f14-8500-712abcfb63aa}</Project>
       <Name>msUtilities.452</Name>
     </ProjectReference>

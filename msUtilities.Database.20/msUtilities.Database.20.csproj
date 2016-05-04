@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\msUtilities\msUtilities.20.csproj">
+    <ProjectReference Include="..\msUtilities.20\msUtilities.20.csproj">
       <Project>{a7b2cfa3-8e60-478e-a01a-5b356a159267}</Project>
       <Name>msUtilities.20</Name>
     </ProjectReference>

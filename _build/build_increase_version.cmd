@@ -7,10 +7,10 @@ call "%pathMsBuildInit%"
 cd %pathBase%
 
 rem aggiorno la versione
-%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities\Properties\AssemblyInfo.cs
-%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities_452\Properties\AssemblyInfo.cs
-%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msDatabaseUtilities_20\Properties\AssemblyInfo.cs
-%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msDatabaseUtilities_452\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.20\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.452\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.Database.20\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.Database.452\Properties\AssemblyInfo.cs
 
 rem eseguo una pulizia delle directory
 msbuild /t:clean /p:configuration=Release
