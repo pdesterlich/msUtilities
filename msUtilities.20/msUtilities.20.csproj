@@ -42,13 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\msUtilities.452\msConversion.cs">
+      <Link>msConversion.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msDateHelpers.cs">
+      <Link>msDateHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msFtpUpload.cs">
+      <Link>msFtpUpload.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msMonth.cs">
+      <Link>msMonth.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msYear.cs">
+      <Link>msYear.cs</Link>
+    </Compile>
     <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Include="msDateHelpers.cs" />
-    <Compile Include="msFtpUpload.cs" />
     <Compile Include="msSendMail.cs" />
     <Compile Include="msSmtpConfig.cs" />
     <Compile Include="msSmtpConfigForm.cs">
@@ -59,9 +72,6 @@
     </Compile>
     <Compile Include="msText.cs" />
     <Compile Include="msXmlHelpers.cs" />
-    <Compile Include="msYear.cs" />
-    <Compile Include="msConversion.cs" />
-    <Compile Include="msMonth.cs" />
     <Compile Include="msProgressBar.cs" />
     <Compile Include="msWebRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
