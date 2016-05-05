@@ -47,11 +47,19 @@ namespace msUtilities
     /// class initialization (read params from XmlElement attributes)
     /// </summary>
     /// <param name="xmlElement">XmlElement to read params from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
+#if NET20
+    public msSmtpConfig(XmlElement xmlElement)
+#else
     public msSmtpConfig(XmlElement xmlElement, string encryptionKey = "")
+#endif
     {
       this._init();
+#if NET20
+      this.FromXml(xmlElement);
+#else
       this.FromXml(xmlElement, encryptionKey);
+#endif
     }
 
     /// <summary>
@@ -71,14 +79,21 @@ namespace msUtilities
     /// writes smtp server params as attributes of a xml element
     /// </summary>
     /// <param name="xmlElement">XmlElement to add attributes to</param>
-    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear)</param>
+    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
+#if NET20
+    public void ToXml(XmlElement xmlElement)
+#else
     public void ToXml(XmlElement xmlElement, String encryptionKey = "")
+#endif
     {
       xmlElement.SetAttribute("name", this.Name);
       xmlElement.SetAttribute("host", this.Host);
       xmlElement.SetAttribute("username", this.Username);
       xmlElement.SetAttribute("port", this.Port.ToString());
       xmlElement.SetAttribute("enablessl", this.EnableSSL.ToString());
+#if NET20
+      xmlElement.SetAttribute("password", this.Password);
+#else
       if (encryptionKey == "")
       {
         xmlElement.SetAttribute("password", this.Password);
@@ -87,20 +102,28 @@ namespace msUtilities
       {
         xmlElement.SetAttribute("password", msStringCipher.Encrypt(this.Password, encryptionKey));
       }
+#endif
     }
 
     /// <summary>
     /// loads smtp server params from attributes of a xml element
     /// </summary>
     /// <param name="xmlElement">XmlElement to read attributes from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is)</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
+#if NET20
+    public void FromXml(XmlElement xmlElement)
+#else
     public void FromXml(XmlElement xmlElement, string encryptionKey = "")
+#endif
     {
       this.Name = msXmlHelpers.attribute(xmlElement, "name", "");
       this.Host = msXmlHelpers.attribute(xmlElement, "host", "");
       this.Username = msXmlHelpers.attribute(xmlElement, "username", "");
       this.Port = msXmlHelpers.attribute(xmlElement, "port", 25);
       this.EnableSSL = msXmlHelpers.attribute(xmlElement, "enablessl", false);
+#if NET20
+      this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
+#else
       if (encryptionKey == "")
       {
         this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
@@ -116,6 +139,7 @@ namespace msUtilities
           this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
         }
       }
+#endif
     }
   }
 }
