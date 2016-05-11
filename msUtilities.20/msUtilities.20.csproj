@@ -63,6 +63,15 @@
     <Compile Include="..\msUtilities.452\msSmtpConfig.cs">
       <Link>msSmtpConfig.cs</Link>
     </Compile>
+    <Compile Include="..\msUtilities.452\msText.cs">
+      <Link>msText.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msWebRequest.cs">
+      <Link>msWebRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msXmlHelpers.cs">
+      <Link>msXmlHelpers.cs</Link>
+    </Compile>
     <Compile Include="..\msUtilities.452\msYear.cs">
       <Link>msYear.cs</Link>
     </Compile>
@@ -77,9 +86,6 @@
     <Compile Include="msSmtpConfigForm.designer.cs">
       <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="msText.cs" />
-    <Compile Include="msXmlHelpers.cs" />
-    <Compile Include="msWebRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
