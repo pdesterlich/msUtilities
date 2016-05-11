@@ -2,7 +2,7 @@
 
 namespace msUtilities
 {
-  public class msDateHelpers
+  public static class msDateHelpers
   {
     /// <summary>
     /// returns the first day of month containing the specified date

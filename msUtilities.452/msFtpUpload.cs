@@ -6,7 +6,7 @@ using System.Net;
 
 namespace msUtilities
 {
-  public class msFtpUpload
+  public static class msFtpUpload
   {
     /// <summary>
     /// upload a single file on a remote ftp server

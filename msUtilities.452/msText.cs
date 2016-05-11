@@ -3,7 +3,7 @@ using System.Text;
 
 namespace msUtilities
 {
-  public class msText
+  public static class msText
   {
     /// <summary>
     /// replace common line break characters with Environment.NewLine

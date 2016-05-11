@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace msUtilities
 {
-  public class msXmlHelpers
+  public static class msXmlHelpers
   {
     /// <summary>
     /// returns the value (string) of a single node (inside a xml document)
