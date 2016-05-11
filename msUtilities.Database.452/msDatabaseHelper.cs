@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data.Common;
 using System.Data.SqlClient;
+#if NET452
 using FirebirdSql.Data.FirebirdClient;
+#endif
 
 namespace msUtilities.Database
 {
@@ -40,7 +42,11 @@ namespace msUtilities.Database
         switch (connectionParams.databaseType)
         {
           case DatabaseType.Firebird:
+#if NET452
             dbConn = new FbConnection(connectionParams.getConnectionString());
+#else
+            error = Messages.databaseNotSupported;
+#endif
             break;
           case DatabaseType.SqlServer:
             dbConn = new SqlConnection(connectionParams.getConnectionString());
@@ -65,7 +71,9 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
+#if NET452
           dbCommand = new FbCommand();
+#endif
           break;
         case DatabaseType.SqlServer:
           dbCommand = new SqlCommand();
@@ -84,7 +92,9 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
+#if NET452
           dbCommand = new FbCommand(commandText, (FbConnection)dbConn);
+#endif
           break;
         case DatabaseType.SqlServer:
           dbCommand = new SqlCommand(commandText, (SqlConnection)dbConn);
@@ -103,7 +113,9 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
+#if NET452
           dbParam = new FbParameter();
+#endif
           break;
         case DatabaseType.SqlServer:
           dbParam = new SqlParameter();
@@ -122,7 +134,9 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
+#if NET452
           dbParam = new FbParameter(paramName, paramValue);
+#endif
           break;
         case DatabaseType.SqlServer:
           dbParam = new SqlParameter(paramName, paramValue);

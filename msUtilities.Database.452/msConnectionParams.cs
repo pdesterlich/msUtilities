@@ -60,8 +60,12 @@ namespace msUtilities.Database
     /// class initialization (read params from XmlElement attributes)
     /// </summary>
     /// <param name="xmlElement">XmlElement to read params from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
+#if NET20
+    public msConnectionParams(XmlElement xmlElement)
+#else
     public msConnectionParams(XmlElement xmlElement, string encryptionKey = "")
+#endif
     {
       this.databaseType = DatabaseType.Firebird;
       this.databaseTypeCustom = "";
@@ -70,7 +74,11 @@ namespace msUtilities.Database
       this.host = "localhost";
       this.database = "";
 
-      this.FromXml(xmlElement, encryptionKey);
+#if NET20
+    this.FromXml(xmlElement);
+#else
+    this.FromXml(xmlElement, encryptionKey);
+#endif
     }
 
     /// <summary>
@@ -104,14 +112,21 @@ namespace msUtilities.Database
     /// writes connection params as attributes of a xml element
     /// </summary>
     /// <param name="xmlElement">XmlElement to add attributes to</param>
-    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear)</param>
+    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
+#if NET20
+    public void ToXml(XmlElement xmlElement)
+#else
     public void ToXml(XmlElement xmlElement, String encryptionKey = "")
+#endif
     {
       xmlElement.SetAttribute("databaseType", this.databaseType.ToString());
       xmlElement.SetAttribute("databaseTypeCustom", this.databaseTypeCustom);
       xmlElement.SetAttribute("host", this.host);
       xmlElement.SetAttribute("database", this.database);
       xmlElement.SetAttribute("username", this.username);
+#if NET20
+      xmlElement.SetAttribute("password", this.password);
+#else
       if (encryptionKey == "")
       {
         xmlElement.SetAttribute("password", this.password);
@@ -120,14 +135,19 @@ namespace msUtilities.Database
       {
         xmlElement.SetAttribute("password", msStringCipher.Encrypt(this.password, encryptionKey));
       }
+#endif
     }
 
     /// <summary>
     /// loads connection params from attributes of a xml element
     /// </summary>
     /// <param name="xmlElement">XmlElement to read attributes from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is)</param>
+    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
+#if NET20
+    public void FromXml(XmlElement xmlElement)
+#else
     public void FromXml(XmlElement xmlElement, string encryptionKey = "")
+#endif
     {
       string type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
       if (type.StartsWith("dt")) type = type.Remove(0, 2);
@@ -136,6 +156,9 @@ namespace msUtilities.Database
       this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
       this.database = msXmlHelpers.attribute(xmlElement, "database", "");
       this.username = msXmlHelpers.attribute(xmlElement, "username", "");
+#if NET20
+      this.password = msXmlHelpers.attribute(xmlElement, "password", "");
+#else
       if (encryptionKey == "")
       {
         this.password = msXmlHelpers.attribute(xmlElement, "password", "");
@@ -151,6 +174,7 @@ namespace msUtilities.Database
           this.password = msXmlHelpers.attribute(xmlElement, "password", "");
         }
       }
+#endif
     }
 
     /// <summary>

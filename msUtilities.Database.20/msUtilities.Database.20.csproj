@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\msUtilities.Database.452\msConnectionParams.cs">
+      <Link>msConnectionParams.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.Database.452\msDatabaseHelper.cs">
+      <Link>msDatabaseHelper.cs</Link>
+    </Compile>
     <Compile Include="msConnectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="msConnectionForm.designer.cs">
       <DependentUpon>msConnectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="msConnectionParams.cs" />
-    <Compile Include="msDatabaseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
