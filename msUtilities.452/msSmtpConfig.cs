@@ -48,14 +48,14 @@ namespace msUtilities
     /// </summary>
     /// <param name="xmlElement">XmlElement to read params from</param>
     /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public msSmtpConfig(XmlElement xmlElement)
 #else
     public msSmtpConfig(XmlElement xmlElement, string encryptionKey = "")
 #endif
     {
       this._init();
-#if NET20
+#if !NET452
       this.FromXml(xmlElement);
 #else
       this.FromXml(xmlElement, encryptionKey);
@@ -80,7 +80,7 @@ namespace msUtilities
     /// </summary>
     /// <param name="xmlElement">XmlElement to add attributes to</param>
     /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public void ToXml(XmlElement xmlElement)
 #else
     public void ToXml(XmlElement xmlElement, String encryptionKey = "")
@@ -91,7 +91,7 @@ namespace msUtilities
       xmlElement.SetAttribute("username", this.Username);
       xmlElement.SetAttribute("port", this.Port.ToString());
       xmlElement.SetAttribute("enablessl", this.EnableSSL.ToString());
-#if NET20
+#if !NET452
       xmlElement.SetAttribute("password", this.Password);
 #else
       if (encryptionKey == "")
@@ -110,7 +110,7 @@ namespace msUtilities
     /// </summary>
     /// <param name="xmlElement">XmlElement to read attributes from</param>
     /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public void FromXml(XmlElement xmlElement)
 #else
     public void FromXml(XmlElement xmlElement, string encryptionKey = "")
@@ -121,7 +121,7 @@ namespace msUtilities
       this.Username = msXmlHelpers.attribute(xmlElement, "username", "");
       this.Port = msXmlHelpers.attribute(xmlElement, "port", 25);
       this.EnableSSL = msXmlHelpers.attribute(xmlElement, "enablessl", false);
-#if NET20
+#if !NET452
       this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
 #else
       if (encryptionKey == "")

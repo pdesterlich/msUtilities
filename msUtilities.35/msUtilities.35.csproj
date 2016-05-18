@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3D020FA-1699-4FF9-81D7-550019155936}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>msUtilities</RootNamespace>
+    <AssemblyName>msUtilities.35</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants Condition=" !$(DefineConstants.Contains(';NET')) ">$(DefineConstants);$(TargetFrameworkVersion.Replace("v", "NET").Replace(".", ""))</DefineConstants>
+    <DefineConstants Condition=" $(DefineConstants.Contains(';NET')) ">$(DefineConstants.Remove($(DefineConstants.LastIndexOf(";NET"))));$(TargetFrameworkVersion.Replace("v", "NET").Replace(".", ""))</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\msUtilities.452\Messages.Designer.cs">
+      <Link>Messages.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msConversion.cs">
+      <Link>msConversion.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msDateHelpers.cs">
+      <Link>msDateHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msFtpUpload.cs">
+      <Link>msFtpUpload.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msMonth.cs">
+      <Link>msMonth.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msProgressBar.cs">
+      <Link>msProgressBar.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msSendMail.cs">
+      <Link>msSendMail.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msSmtpConfig.cs">
+      <Link>msSmtpConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msSmtpConfigForm.cs">
+      <Link>msSmtpConfigForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msSmtpConfigForm.Designer.cs">
+      <Link>msSmtpConfigForm.Designer.cs</Link>
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msText.cs">
+      <Link>msText.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msWebRequest.cs">
+      <Link>msWebRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msXmlHelpers.cs">
+      <Link>msXmlHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msYear.cs">
+      <Link>msYear.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\msUtilities.452\Messages.it.resx">
+      <Link>Messages.it.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\msUtilities.452\Messages.resx">
+      <Link>Messages.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\msUtilities.452\msSmtpConfigForm.resx">
+      <Link>msSmtpConfigForm.resx</Link>
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
