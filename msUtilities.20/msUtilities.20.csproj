@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\msUtilities.452\Messages.Designer.cs">
+      <Link>Messages.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="..\msUtilities.452\msConversion.cs">
       <Link>msConversion.cs</Link>
     </Compile>
@@ -75,11 +81,6 @@
     <Compile Include="..\msUtilities.452\msYear.cs">
       <Link>msYear.cs</Link>
     </Compile>
-    <Compile Include="Messages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Messages.resx</DependentUpon>
-    </Compile>
     <Compile Include="msSmtpConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,10 +90,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Messages.it.resx" />
-    <EmbeddedResource Include="Messages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="..\msUtilities.452\Messages.it.resx">
+      <Link>Messages.it.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\msUtilities.452\Messages.resx">
+      <Link>Messages.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="msSmtpConfigForm.resx">
       <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
