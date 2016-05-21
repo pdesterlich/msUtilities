@@ -69,6 +69,14 @@
     <Compile Include="..\msUtilities.452\msSmtpConfig.cs">
       <Link>msSmtpConfig.cs</Link>
     </Compile>
+    <Compile Include="..\msUtilities.452\msSmtpConfigForm.cs">
+      <Link>msSmtpConfigForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\msUtilities.452\msSmtpConfigForm.Designer.cs">
+      <Link>msSmtpConfigForm.Designer.cs</Link>
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\msUtilities.452\msText.cs">
       <Link>msText.cs</Link>
     </Compile>
@@ -81,12 +89,6 @@
     <Compile Include="..\msUtilities.452\msYear.cs">
       <Link>msYear.cs</Link>
     </Compile>
-    <Compile Include="msSmtpConfigForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="msSmtpConfigForm.designer.cs">
-      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +98,9 @@
     <EmbeddedResource Include="..\msUtilities.452\Messages.resx">
       <Link>Messages.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="msSmtpConfigForm.resx">
-      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="..\msUtilities.452\msSmtpConfigForm.resx">
+      <Link>msSmtpConfigForm.resx</Link>
+	  <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
