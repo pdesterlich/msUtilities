@@ -6,10 +6,12 @@ call "%pathMsBuildInit%"
 
 cd %pathBase%
 
-rem aggiorno la versione
+rem aggiorno la versione - release
 %pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.20\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.35\Properties\AssemblyInfo.cs
 %pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.452\Properties\AssemblyInfo.cs
 %pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.Database.20\Properties\AssemblyInfo.cs
+%pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.Database.35\Properties\AssemblyInfo.cs
 %pathAssemblyVersionUpdater%\assemblyVersionUpdater.exe -inc:3 msUtilities.Database.452\Properties\AssemblyInfo.cs
 
 rem eseguo una pulizia delle directory
