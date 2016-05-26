@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Common;
 using System.Data.SqlClient;
-#if NET452
+#if !NET20
 using FirebirdSql.Data.FirebirdClient;
 #endif
 
@@ -42,7 +42,7 @@ namespace msUtilities.Database
         switch (connectionParams.databaseType)
         {
           case DatabaseType.Firebird:
-#if NET452
+#if !NET20
             dbConn = new FbConnection(connectionParams.getConnectionString());
 #else
             error = Messages.databaseNotSupported;
@@ -71,7 +71,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-#if NET452
+#if !NET20
           dbCommand = new FbCommand();
 #endif
           break;
@@ -92,7 +92,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-#if NET452
+#if !NET20
           dbCommand = new FbCommand(commandText, (FbConnection)dbConn);
 #endif
           break;
@@ -113,7 +113,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-#if NET452
+#if !NET20
           dbParam = new FbParameter();
 #endif
           break;
@@ -134,7 +134,7 @@ namespace msUtilities.Database
       switch (connectionParams.databaseType)
       {
         case DatabaseType.Firebird:
-#if NET452
+#if !NET20
           dbParam = new FbParameter(paramName, paramValue);
 #endif
           break;
