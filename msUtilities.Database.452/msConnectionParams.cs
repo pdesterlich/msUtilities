@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Xml;
-using msUtilities;
 
 namespace msUtilities.Database
 {
@@ -61,7 +60,7 @@ namespace msUtilities.Database
     /// </summary>
     /// <param name="xmlElement">XmlElement to read params from</param>
     /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public msConnectionParams(XmlElement xmlElement)
 #else
     public msConnectionParams(XmlElement xmlElement, string encryptionKey = "")
@@ -74,8 +73,8 @@ namespace msUtilities.Database
       this.host = "localhost";
       this.database = "";
 
-#if NET20
-    this.FromXml(xmlElement);
+#if !NET452
+      this.FromXml(xmlElement);
 #else
     this.FromXml(xmlElement, encryptionKey);
 #endif
@@ -113,7 +112,7 @@ namespace msUtilities.Database
     /// </summary>
     /// <param name="xmlElement">XmlElement to add attributes to</param>
     /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public void ToXml(XmlElement xmlElement)
 #else
     public void ToXml(XmlElement xmlElement, String encryptionKey = "")
@@ -124,7 +123,7 @@ namespace msUtilities.Database
       xmlElement.SetAttribute("host", this.host);
       xmlElement.SetAttribute("database", this.database);
       xmlElement.SetAttribute("username", this.username);
-#if NET20
+#if !NET452
       xmlElement.SetAttribute("password", this.password);
 #else
       if (encryptionKey == "")
@@ -143,7 +142,7 @@ namespace msUtilities.Database
     /// </summary>
     /// <param name="xmlElement">XmlElement to read attributes from</param>
     /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
-#if NET20
+#if !NET452
     public void FromXml(XmlElement xmlElement)
 #else
     public void FromXml(XmlElement xmlElement, string encryptionKey = "")
@@ -156,7 +155,7 @@ namespace msUtilities.Database
       this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
       this.database = msXmlHelpers.attribute(xmlElement, "database", "");
       this.username = msXmlHelpers.attribute(xmlElement, "username", "");
-#if NET20
+#if !NET452
       this.password = msXmlHelpers.attribute(xmlElement, "password", "");
 #else
       if (encryptionKey == "")
