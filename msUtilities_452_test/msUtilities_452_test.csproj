@@ -6,7 +6,7 @@
     <ProjectGuid>{8C01FB59-FB16-40D4-B56C-91D0CCD58BB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>msUtilities_452_test</RootNamespace>
+    <RootNamespace>msUtilities.Tests</RootNamespace>
     <AssemblyName>msUtilities_452_test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,6 +58,7 @@
     <Compile Include="msStringCipherTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="msSmtpConfigTest.cs" />
+    <Compile Include="msComparisonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\msUtilities.Database.452\msUtilities.Database.452.csproj">

@@ -50,6 +50,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
+    <Compile Include="..\msUtilities.452\msComparison.cs">
+      <Link>msComparison.cs</Link>
+    </Compile>
     <Compile Include="..\msUtilities.452\msConversion.cs">
       <Link>msConversion.cs</Link>
     </Compile>

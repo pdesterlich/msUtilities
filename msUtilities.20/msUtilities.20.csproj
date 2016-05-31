@@ -48,6 +48,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
+    <Compile Include="..\msUtilities.452\msComparison.cs">
+      <Link>msComparison.cs</Link>
+    </Compile>
     <Compile Include="..\msUtilities.452\msConversion.cs">
       <Link>msConversion.cs</Link>
     </Compile>
@@ -100,7 +103,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="..\msUtilities.452\msSmtpConfigForm.resx">
       <Link>msSmtpConfigForm.resx</Link>
-	  <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
+      <DependentUpon>msSmtpConfigForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
+    <Compile Include="msComparison.cs" />
     <Compile Include="msConversion.cs" />
     <Compile Include="msDateHelpers.cs" />
     <Compile Include="msFtpUpload.cs" />
