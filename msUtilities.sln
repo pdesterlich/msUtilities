@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities.20", "msUtilities.20\msUtilities.20.csproj", "{A7B2CFA3-8E60-478E-A01A-5B356A159267}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities.35", "msUtilities.35\msUtilities.35.csproj", "{D3D020FA-1699-4FF9-81D7-550019155936}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities.Database.35", "msUtilities.Database.35\msUtilities.Database.35.csproj", "{EC1544C0-1968-4CF4-B893-EBA95284D82C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities.Database.Forms.Wpf.452", "msUtilities.Database.Forms.Wpf.452\msUtilities.Database.Forms.Wpf.452.csproj", "{C2DA6655-FA5A-4A96-B67E-BD67E103DDDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msUtilities_452_wpf_app", "msUtilities_452_wpf_app\msUtilities_452_wpf_app.csproj", "{690F363B-DA9D-4CDE-ABB6-91E78F946EC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{EC1544C0-1968-4CF4-B893-EBA95284D82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC1544C0-1968-4CF4-B893-EBA95284D82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC1544C0-1968-4CF4-B893-EBA95284D82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2DA6655-FA5A-4A96-B67E-BD67E103DDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2DA6655-FA5A-4A96-B67E-BD67E103DDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2DA6655-FA5A-4A96-B67E-BD67E103DDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2DA6655-FA5A-4A96-B67E-BD67E103DDDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690F363B-DA9D-4CDE-ABB6-91E78F946EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690F363B-DA9D-4CDE-ABB6-91E78F946EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690F363B-DA9D-4CDE-ABB6-91E78F946EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690F363B-DA9D-4CDE-ABB6-91E78F946EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
