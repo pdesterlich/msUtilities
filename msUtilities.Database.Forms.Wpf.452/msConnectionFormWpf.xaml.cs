@@ -10,8 +10,6 @@ namespace msUtilities.Database.Forms.Wpf
     {
         public bool showDialog(string title, ref msConnectionParams connectionParams)
         {
-            bool result = false;
-
             Title = title;
 
             BtnMostraPassword.Content = Messages.buttonShow;
@@ -30,17 +28,16 @@ namespace msUtilities.Database.Forms.Wpf
             TxtUsername.Text = connectionParams.username;
             TxtPassword.Password = connectionParams.password;
 
-            if ((bool)ShowDialog())
-            {
-                connectionParams.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), CboType.SelectedItem.ToString());
-                connectionParams.host = TxtHost.Text;
-                connectionParams.database = TxtDatabase.Text;
-                connectionParams.username = TxtUsername.Text;
-                connectionParams.password = TxtPassword.Password;
-                result = true;
-            }
+            var dialog = ShowDialog();
+            if (dialog == null || !(bool)dialog) return false;
 
-            return result;
+            connectionParams.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), CboType.SelectedItem.ToString());
+            connectionParams.host = TxtHost.Text;
+            connectionParams.database = TxtDatabase.Text;
+            connectionParams.username = TxtUsername.Text;
+            connectionParams.password = TxtPassword.Password;
+
+            return true;
         }
 
         public msConnectionFormWpf()
