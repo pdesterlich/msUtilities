@@ -13,3 +13,5 @@ rem compilo i due progetti
 msbuild /t:build /p:configuration=Release
 
 cd %pathBase%\_build
+
+call dist.cmd

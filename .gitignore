@@ -3,6 +3,7 @@
 
 # local build settings
 _build/localvars.cmd
+_build/_dist/*.zip
 
 # User-specific files
 *.suo
