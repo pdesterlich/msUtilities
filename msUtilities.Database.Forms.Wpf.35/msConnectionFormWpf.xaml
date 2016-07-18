@@ -1,0 +1,40 @@
+﻿<Window x:Class="msUtilities.Database.Forms.Wpf.msConnectionFormWpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:msUtilities.Database.Forms.Wpf"
+        mc:Ignorable="d"
+        Title="msConnectionFormWpf" Height="300" Width="600" ResizeMode="NoResize">
+    <DockPanel LastChildFill="True" Margin="10">
+        <DockPanel LastChildFill="False" Height="30" DockPanel.Dock="Bottom">
+            <Button x:Name="BtnCancel" Content="Annulla" Width="150" DockPanel.Dock="Left" IsCancel="True"></Button>
+            <Button x:Name="BtnConfirm" Content="Ok" Width="150" DockPanel.Dock="Right" IsDefault="True" Click="BtnConfirm_Click"></Button>
+        </DockPanel>
+        <StackPanel>
+            <DockPanel Height="30" LastChildFill="True" Margin="0,0,0,10">
+                <Label x:Name="LblType" Content="Tipo" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+                <ComboBox x:Name="CboType" Padding="5" VerticalAlignment="Center" Height="30">
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Height="30" LastChildFill="True" Margin="0,0,0,10">
+                <Label x:Name="LblHost" Content="Host" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+                <TextBox x:Name="TxtHost" Height="30" TextWrapping="Wrap" Text="" Padding="5" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel Height="30" LastChildFill="True" Margin="0,0,0,10">
+                <Label x:Name="LblDatabase" Content="Database" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+                <TextBox x:Name="TxtDatabase" Height="30" TextWrapping="Wrap" Text="" Padding="5" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel Height="30" LastChildFill="True" Margin="0,0,0,10">
+                <Label x:Name="LblUsername" Content="Utente" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+                <TextBox x:Name="TxtUsername" Height="30" TextWrapping="Wrap" Text="" Padding="5" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel Height="30" LastChildFill="True" Margin="0,0,0,10">
+                <Label x:Name="LblPassword" Content="Password" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+                <Button x:Name="BtnMostraPassword" Width="100" Content="Mostra" DockPanel.Dock="Right" Margin="10,0,0,0" Click="BtnMostraPassword_Click"></Button>
+                <PasswordBox x:Name="TxtPassword" Height="30" Password="" Padding="5" VerticalAlignment="Center"></PasswordBox>
+            </DockPanel>
+
+        </StackPanel>
+    </DockPanel>
+</Window>
