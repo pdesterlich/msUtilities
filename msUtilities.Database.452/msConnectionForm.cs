@@ -7,9 +7,7 @@ namespace msUtilities.Database
     {
         public bool showDialog(string title, ref MsConnectionParams connectionParams)
         {
-            bool result = false;
-
-            this.Text = title;
+            Text = title;
 
             btnShowPassword.Text = Messages.buttonShow;
             btnOk.Text = Messages.buttonOk;
@@ -27,17 +25,14 @@ namespace msUtilities.Database
             txtUsername.Text = connectionParams.Username;
             txtPassword.Text = connectionParams.Password;
 
-            if (this.ShowDialog() == DialogResult.OK)
-            {
-                connectionParams.DatabaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), cboTipo.SelectedItem.ToString());
-                connectionParams.Host = txtHost.Text;
-                connectionParams.Database = txtDatabase.Text;
-                connectionParams.Username = txtUsername.Text;
-                connectionParams.Password = txtPassword.Text;
-                result = true;
-            }
+            if (ShowDialog() != DialogResult.OK) return false;
 
-            return result;
+            connectionParams.DatabaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), cboTipo.SelectedItem.ToString());
+            connectionParams.Host = txtHost.Text;
+            connectionParams.Database = txtDatabase.Text;
+            connectionParams.Username = txtUsername.Text;
+            connectionParams.Password = txtPassword.Text;
+            return true;
         }
 
         public msConnectionForm()
