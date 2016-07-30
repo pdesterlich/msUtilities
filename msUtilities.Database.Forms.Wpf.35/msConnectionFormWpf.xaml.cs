@@ -31,7 +31,7 @@ namespace msUtilities.Database.Forms.Wpf
             var dialog = ShowDialog();
             if (dialog == null || !(bool)dialog) return false;
 
-            connectionParams.databaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), CboType.SelectedItem.ToString());
+            connectionParams.databaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), CboType.SelectedItem.ToString());
             connectionParams.host = TxtHost.Text;
             connectionParams.database = TxtDatabase.Text;
             connectionParams.username = TxtUsername.Text;
@@ -47,7 +47,7 @@ namespace msUtilities.Database.Forms.Wpf
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             CboType.Items.Clear();
-            CboType.ItemsSource = Enum.GetNames(typeof(DatabaseType));
+            CboType.ItemsSource = Enum.GetNames(typeof(MsDatabaseType));
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)

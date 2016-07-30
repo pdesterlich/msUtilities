@@ -27,7 +27,7 @@ namespace msUtilities_452_app
         {
             var connectionForm = new msConnectionForm();
             var connectionParams = new msConnectionParams();
-            connectionParams.databaseType = DatabaseType.SqlServer;
+            connectionParams.databaseType = MsDatabaseType.SqlServer;
             connectionParams.database = "database";
             if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
             {
