@@ -12,7 +12,7 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationFirebird()
         {
-            msConnectionParams conn = new msConnectionParams(
+            MsConnectionParams conn = new MsConnectionParams(
               MsDatabaseType.Firebird,
               "user",
               "password",
@@ -29,12 +29,12 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationFirebirdEmpty()
         {
-            var conn = new msConnectionParams();
-            conn.databaseType = MsDatabaseType.Firebird;
-            conn.username = "user";
-            conn.password = "password";
-            conn.host = "host";
-            conn.database = "database";
+            var conn = new MsConnectionParams();
+            conn.DatabaseType = MsDatabaseType.Firebird;
+            conn.Username = "user";
+            conn.Password = "password";
+            conn.Host = "host";
+            conn.Database = "database";
 
             string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
             string result = conn.GetConnectionString();
@@ -45,7 +45,7 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationSqlServer()
         {
-            msConnectionParams conn = new msConnectionParams(
+            MsConnectionParams conn = new MsConnectionParams(
               MsDatabaseType.SqlServer,
               "user",
               "password",
@@ -62,7 +62,7 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationOther()
         {
-            msConnectionParams conn = new msConnectionParams(
+            MsConnectionParams conn = new MsConnectionParams(
               MsDatabaseType.Other,
               "user",
               "password",
@@ -80,7 +80,7 @@ namespace msUtilities_452_test
         public void TestConnectionParamsToXml()
         {
             string enctryptionKey = "key";
-            msConnectionParams conn = new msConnectionParams(
+            MsConnectionParams conn = new MsConnectionParams(
               MsDatabaseType.Firebird,
               "user",
               "password",
@@ -111,10 +111,10 @@ namespace msUtilities_452_test
             xmlElement.SetAttribute("username", "username");
             xmlElement.SetAttribute("password", msStringCipher.Encrypt("password", encryptionKey));
 
-            msConnectionParams conn = new msConnectionParams(xmlElement, encryptionKey);
+            MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
 
-            Assert.AreEqual(MsDatabaseType.Firebird, conn.databaseType);
-            Assert.AreEqual("password", conn.password);
+            Assert.AreEqual(MsDatabaseType.Firebird, conn.DatabaseType);
+            Assert.AreEqual("password", conn.Password);
         }
 
         [TestMethod]
@@ -131,10 +131,10 @@ namespace msUtilities_452_test
             xmlElement.SetAttribute("username", "username");
             xmlElement.SetAttribute("password", msStringCipher.Encrypt("password", encryptionKey));
 
-            msConnectionParams conn = new msConnectionParams(xmlElement, encryptionKey);
+            MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
 
-            Assert.AreEqual(MsDatabaseType.Firebird, conn.databaseType);
-            Assert.AreEqual("password", conn.password);
+            Assert.AreEqual(MsDatabaseType.Firebird, conn.DatabaseType);
+            Assert.AreEqual("password", conn.Password);
         }
     }
 }

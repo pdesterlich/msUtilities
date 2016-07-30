@@ -8,7 +8,7 @@ namespace msUtilities.Database.Forms.Wpf
     /// </summary>
     public partial class msConnectionFormWpf : Window
     {
-        public bool showDialog(string title, ref msConnectionParams connectionParams)
+        public bool showDialog(string title, ref MsConnectionParams connectionParams)
         {
             Title = title;
 
@@ -22,20 +22,20 @@ namespace msUtilities.Database.Forms.Wpf
             LblUsername.Content = Messages.labelConnectionUsername;
             LblPassword.Content = Messages.labelConnectionPassword;
 
-            CboType.SelectedIndex = CboType.Items.IndexOf(connectionParams.databaseType.ToString());
-            TxtHost.Text = connectionParams.host;
-            TxtDatabase.Text = connectionParams.database;
-            TxtUsername.Text = connectionParams.username;
-            TxtPassword.Password = connectionParams.password;
+            CboType.SelectedIndex = CboType.Items.IndexOf(connectionParams.DatabaseType.ToString());
+            TxtHost.Text = connectionParams.Host;
+            TxtDatabase.Text = connectionParams.Database;
+            TxtUsername.Text = connectionParams.Username;
+            TxtPassword.Password = connectionParams.Password;
 
             var dialog = ShowDialog();
             if (dialog == null || !(bool)dialog) return false;
 
-            connectionParams.databaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), CboType.SelectedItem.ToString());
-            connectionParams.host = TxtHost.Text;
-            connectionParams.database = TxtDatabase.Text;
-            connectionParams.username = TxtUsername.Text;
-            connectionParams.password = TxtPassword.Password;
+            connectionParams.DatabaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), CboType.SelectedItem.ToString());
+            connectionParams.Host = TxtHost.Text;
+            connectionParams.Database = TxtDatabase.Text;
+            connectionParams.Username = TxtUsername.Text;
+            connectionParams.Password = TxtPassword.Password;
 
             return true;
         }

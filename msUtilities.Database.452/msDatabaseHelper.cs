@@ -9,7 +9,7 @@ namespace msUtilities.Database
 {
     public class msDatabaseHelper
     {
-        public static string databaseConnectionTest(msConnectionParams connectionParams)
+        public static string databaseConnectionTest(MsConnectionParams connectionParams)
         {
             string error = "";
             DbConnection dbConn = getConnection(out error, connectionParams);
@@ -23,23 +23,23 @@ namespace msUtilities.Database
                 {
                     dbConn.Open();
                     dbConn.Close();
-                    return String.Format(Messages.databaseConnectionTestResult, connectionParams.host, connectionParams.database);
+                    return String.Format(Messages.databaseConnectionTestResult, connectionParams.Host, connectionParams.Database);
                 }
                 catch (Exception err)
                 {
-                    return String.Format(Messages.databaseConnectionError, connectionParams.host, connectionParams.database, err.Message);
+                    return String.Format(Messages.databaseConnectionError, connectionParams.Host, connectionParams.Database, err.Message);
                 }
             }
         }
 
-        public static DbConnection getConnection(out string error, msConnectionParams connectionParams)
+        public static DbConnection getConnection(out string error, MsConnectionParams connectionParams)
         {
             error = "";
             DbConnection dbConn = null;
 
             try
             {
-                switch (connectionParams.databaseType)
+                switch (connectionParams.DatabaseType)
                 {
                     case MsDatabaseType.Firebird:
 #if !NET20
@@ -64,11 +64,11 @@ namespace msUtilities.Database
             return dbConn;
         }
 
-        public static DbCommand getCommand(msConnectionParams connectionParams)
+        public static DbCommand getCommand(MsConnectionParams connectionParams)
         {
             DbCommand dbCommand = null;
 
-            switch (connectionParams.databaseType)
+            switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
@@ -85,11 +85,11 @@ namespace msUtilities.Database
             return dbCommand;
         }
 
-        public static DbCommand getCommand(msConnectionParams connectionParams, DbConnection dbConn, string commandText)
+        public static DbCommand getCommand(MsConnectionParams connectionParams, DbConnection dbConn, string commandText)
         {
             DbCommand dbCommand = null;
 
-            switch (connectionParams.databaseType)
+            switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
@@ -106,11 +106,11 @@ namespace msUtilities.Database
             return dbCommand;
         }
 
-        public static DbParameter getParameter(msConnectionParams connectionParams)
+        public static DbParameter getParameter(MsConnectionParams connectionParams)
         {
             DbParameter dbParam = null;
 
-            switch (connectionParams.databaseType)
+            switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
@@ -127,11 +127,11 @@ namespace msUtilities.Database
             return dbParam;
         }
 
-        public static DbParameter getParameter(msConnectionParams connectionParams, string paramName, object paramValue)
+        public static DbParameter getParameter(MsConnectionParams connectionParams, string paramName, object paramValue)
         {
             DbParameter dbParam = null;
 
-            switch (connectionParams.databaseType)
+            switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20

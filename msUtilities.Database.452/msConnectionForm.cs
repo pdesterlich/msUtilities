@@ -5,7 +5,7 @@ namespace msUtilities.Database
 {
     public partial class msConnectionForm : Form
     {
-        public bool showDialog(string title, ref msConnectionParams connectionParams)
+        public bool showDialog(string title, ref MsConnectionParams connectionParams)
         {
             bool result = false;
 
@@ -21,19 +21,19 @@ namespace msUtilities.Database
             labelUsername.Text = Messages.labelConnectionUsername;
             labelPassword.Text = Messages.labelConnectionPassword;
 
-            cboTipo.SelectedIndex = cboTipo.Items.IndexOf(connectionParams.databaseType.ToString());
-            txtHost.Text = connectionParams.host;
-            txtDatabase.Text = connectionParams.database;
-            txtUsername.Text = connectionParams.username;
-            txtPassword.Text = connectionParams.password;
+            cboTipo.SelectedIndex = cboTipo.Items.IndexOf(connectionParams.DatabaseType.ToString());
+            txtHost.Text = connectionParams.Host;
+            txtDatabase.Text = connectionParams.Database;
+            txtUsername.Text = connectionParams.Username;
+            txtPassword.Text = connectionParams.Password;
 
             if (this.ShowDialog() == DialogResult.OK)
             {
-                connectionParams.databaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), cboTipo.SelectedItem.ToString());
-                connectionParams.host = txtHost.Text;
-                connectionParams.database = txtDatabase.Text;
-                connectionParams.username = txtUsername.Text;
-                connectionParams.password = txtPassword.Text;
+                connectionParams.DatabaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), cboTipo.SelectedItem.ToString());
+                connectionParams.Host = txtHost.Text;
+                connectionParams.Database = txtDatabase.Text;
+                connectionParams.Username = txtUsername.Text;
+                connectionParams.Password = txtPassword.Text;
                 result = true;
             }
 

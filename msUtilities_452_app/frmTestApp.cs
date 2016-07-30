@@ -15,7 +15,7 @@ namespace msUtilities_452_app
         private void btnTestMsConnectionForms_Click(object sender, EventArgs e)
         {
             var connectionForm = new msConnectionForm();
-            var connectionParams = new msConnectionParams();
+            var connectionParams = new MsConnectionParams();
             if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());
@@ -26,9 +26,9 @@ namespace msUtilities_452_app
         private void btnTestMsConnectionFormsSqlServer_Click(object sender, EventArgs e)
         {
             var connectionForm = new msConnectionForm();
-            var connectionParams = new msConnectionParams();
-            connectionParams.databaseType = MsDatabaseType.SqlServer;
-            connectionParams.database = "database";
+            var connectionParams = new MsConnectionParams();
+            connectionParams.DatabaseType = MsDatabaseType.SqlServer;
+            connectionParams.Database = "database";
             if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());

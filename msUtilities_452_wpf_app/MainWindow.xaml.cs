@@ -16,7 +16,7 @@ namespace msUtilities_452_wpf_app
 
         private void BtnConnectionForm_Click(object sender, RoutedEventArgs e)
         {
-            var connectionParams = new msConnectionParams();
+            var connectionParams = new MsConnectionParams();
             var connectionForm = new msConnectionFormWpf();
             if (connectionForm.showDialog("wpf test", ref connectionParams))
             {
@@ -27,8 +27,8 @@ namespace msUtilities_452_wpf_app
 
         private void BtnConnectionFormSqlServer_Click(object sender, RoutedEventArgs e)
         {
-            var connectionParams = new msConnectionParams();
-            connectionParams.databaseType = MsDatabaseType.SqlServer;
+            var connectionParams = new MsConnectionParams();
+            connectionParams.DatabaseType = MsDatabaseType.SqlServer;
             var connectionForm = new msConnectionFormWpf();
             if (connectionForm.showDialog("wpf test", ref connectionParams))
             {
