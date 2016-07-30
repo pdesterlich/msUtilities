@@ -11,8 +11,8 @@ namespace msUtilities.Database
     {
         public static string databaseConnectionTest(MsConnectionParams connectionParams)
         {
-            string error = "";
-            DbConnection dbConn = getConnection(out error, connectionParams);
+            var error = "";
+            var dbConn = getConnection(out error, connectionParams);
             if (dbConn == null)
             {
                 return Messages.databaseNotConfigured + "\n" + error;
@@ -23,11 +23,11 @@ namespace msUtilities.Database
                 {
                     dbConn.Open();
                     dbConn.Close();
-                    return String.Format(Messages.databaseConnectionTestResult, connectionParams.Host, connectionParams.Database);
+                    return string.Format(Messages.databaseConnectionTestResult, connectionParams.Host, connectionParams.Database);
                 }
                 catch (Exception err)
                 {
-                    return String.Format(Messages.databaseConnectionError, connectionParams.Host, connectionParams.Database, err.Message);
+                    return string.Format(Messages.databaseConnectionError, connectionParams.Host, connectionParams.Database, err.Message);
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace msUtilities.Database
 #if !NET20
                         dbConn = new FbConnection(connectionParams.GetConnectionString());
 #else
-            error = Messages.databaseNotSupported;
+                        error = Messages.databaseNotSupported;
 #endif
                         break;
                     case MsDatabaseType.SqlServer:
@@ -64,88 +64,88 @@ namespace msUtilities.Database
             return dbConn;
         }
 
-        public static DbCommand getCommand(MsConnectionParams connectionParams)
+        public static DbCommand GetCommand(MsConnectionParams connectionParams)
         {
-            DbCommand dbCommand = null;
-
             switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
-                    dbCommand = new FbCommand();
+                    return new FbCommand();
+#else
+                    return null;
 #endif
-                    break;
                 case MsDatabaseType.SqlServer:
-                    dbCommand = new SqlCommand();
-                    break;
+                    return new SqlCommand();
+                case MsDatabaseType.None:
+                    return null;
+                case MsDatabaseType.Other:
+                    return null;
                 default:
-                    break;
+                    return null;
             }
-
-            return dbCommand;
         }
 
-        public static DbCommand getCommand(MsConnectionParams connectionParams, DbConnection dbConn, string commandText)
+        public static DbCommand GetCommand(MsConnectionParams connectionParams, DbConnection dbConn, string commandText)
         {
-            DbCommand dbCommand = null;
-
             switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
-                    dbCommand = new FbCommand(commandText, (FbConnection)dbConn);
+                    return new FbCommand(commandText, (FbConnection)dbConn);
+#else
+                    return null;
 #endif
-                    break;
                 case MsDatabaseType.SqlServer:
-                    dbCommand = new SqlCommand(commandText, (SqlConnection)dbConn);
-                    break;
+                    return new SqlCommand(commandText, (SqlConnection)dbConn);
+                case MsDatabaseType.None:
+                    return null;
+                case MsDatabaseType.Other:
+                    return null;
                 default:
-                    break;
+                    return null;
             }
-
-            return dbCommand;
         }
 
-        public static DbParameter getParameter(MsConnectionParams connectionParams)
+        public static DbParameter GetParameter(MsConnectionParams connectionParams)
         {
-            DbParameter dbParam = null;
-
             switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
-                    dbParam = new FbParameter();
+                    return new FbParameter();
+#else
+                    return null;
 #endif
-                    break;
                 case MsDatabaseType.SqlServer:
-                    dbParam = new SqlParameter();
-                    break;
+                    return new SqlParameter();
+                case MsDatabaseType.None:
+                    return null;
+                case MsDatabaseType.Other:
+                    return null;
                 default:
-                    break;
+                    return null;
             }
-
-            return dbParam;
         }
 
-        public static DbParameter getParameter(MsConnectionParams connectionParams, string paramName, object paramValue)
+        public static DbParameter GetParameter(MsConnectionParams connectionParams, string paramName, object paramValue)
         {
-            DbParameter dbParam = null;
-
             switch (connectionParams.DatabaseType)
             {
                 case MsDatabaseType.Firebird:
 #if !NET20
-                    dbParam = new FbParameter(paramName, paramValue);
+                    return new FbParameter(paramName, paramValue);
+#else
+                    return null;
 #endif
-                    break;
                 case MsDatabaseType.SqlServer:
-                    dbParam = new SqlParameter(paramName, paramValue);
-                    break;
+                    return new SqlParameter(paramName, paramValue);
+                case MsDatabaseType.None:
+                    return null;
+                case MsDatabaseType.Other:
+                    return null;
                 default:
-                    break;
+                    return null;
             }
-
-            return dbParam;
         }
     }
 }
