@@ -43,13 +43,13 @@ namespace msUtilities.Database
                 {
                     case MsDatabaseType.Firebird:
 #if !NET20
-                        dbConn = new FbConnection(connectionParams.getConnectionString());
+                        dbConn = new FbConnection(connectionParams.GetConnectionString());
 #else
             error = Messages.databaseNotSupported;
 #endif
                         break;
                     case MsDatabaseType.SqlServer:
-                        dbConn = new SqlConnection(connectionParams.getConnectionString());
+                        dbConn = new SqlConnection(connectionParams.GetConnectionString());
                         break;
                     default:
                         error = Messages.databaseNotSupported;

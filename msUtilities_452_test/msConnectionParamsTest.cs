@@ -21,7 +21,7 @@ namespace msUtilities_452_test
               );
 
             string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
-            string result = conn.getConnectionString();
+            string result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -37,7 +37,7 @@ namespace msUtilities_452_test
             conn.database = "database";
 
             string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
-            string result = conn.getConnectionString();
+            string result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -54,7 +54,7 @@ namespace msUtilities_452_test
               );
 
             string test = String.Format("User Id={0};Password={1};Database={2};Server={3};", "user", "password", "database", "host");
-            string result = conn.getConnectionString();
+            string result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -71,7 +71,7 @@ namespace msUtilities_452_test
               );
 
             string test = "";
-            string result = conn.getConnectionString();
+            string result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }

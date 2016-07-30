@@ -21,7 +21,7 @@ namespace msUtilities_452_wpf_app
             if (connectionForm.showDialog("wpf test", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());
-                MessageBox.Show(connectionParams.getConnectionString());
+                MessageBox.Show(connectionParams.GetConnectionString());
             }
         }
 
@@ -33,7 +33,7 @@ namespace msUtilities_452_wpf_app
             if (connectionForm.showDialog("wpf test", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());
-                MessageBox.Show(connectionParams.getConnectionString());
+                MessageBox.Show(connectionParams.GetConnectionString());
             }
         }
     }

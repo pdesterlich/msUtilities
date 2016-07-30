@@ -29,12 +29,12 @@ namespace msUtilities.Database
         /// </summary>
         public msConnectionParams()
         {
-            this.databaseType = MsDatabaseType.None;
-            this.DatabaseTypeCustom = "";
-            this.username = "";
-            this.password = "";
-            this.host = "localhost";
-            this.database = "";
+            databaseType = MsDatabaseType.None;
+            DatabaseTypeCustom = "";
+            username = "";
+            password = "";
+            host = "localhost";
+            database = "";
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace msUtilities.Database
         /// <param name="password">password</param>
         /// <param name="host">server</param>
         /// <param name="database">database</param>
-        public msConnectionParams(MsDatabaseType databaseType, String username, String password, String host, String database)
+        public msConnectionParams(MsDatabaseType databaseType, string username, string password, string host, string database)
         {
             this.databaseType = databaseType;
-            this.DatabaseTypeCustom = "";
+            DatabaseTypeCustom = "";
             this.username = username;
             this.password = password;
             this.host = host;
@@ -66,17 +66,17 @@ namespace msUtilities.Database
         public msConnectionParams(XmlElement xmlElement, string encryptionKey = "")
 #endif
         {
-            this.databaseType = MsDatabaseType.Firebird;
-            this.DatabaseTypeCustom = "";
-            this.username = "";
-            this.password = "";
-            this.host = "localhost";
-            this.database = "";
+            databaseType = MsDatabaseType.Firebird;
+            DatabaseTypeCustom = "";
+            username = "";
+            password = "";
+            host = "localhost";
+            database = "";
 
 #if !NET452
             this.FromXml(xmlElement);
 #else
-            this.FromXml(xmlElement, encryptionKey);
+            FromXml(xmlElement, encryptionKey);
 #endif
         }
 
@@ -84,14 +84,14 @@ namespace msUtilities.Database
         /// return the connection string based on the database type
         /// </summary>
         /// <returns>connection string</returns>
-        public string getConnectionString()
+        public string GetConnectionString()
         {
-            switch (this.databaseType)
+            switch (databaseType)
             {
                 case MsDatabaseType.Firebird:
-                    return getFirebird();
+                    return GetFirebird();
                 case MsDatabaseType.SqlServer:
-                    return getSqlServer();
+                    return GetSqlServer();
                 case MsDatabaseType.None:
                     return "";
                 case MsDatabaseType.Other:
@@ -106,9 +106,9 @@ namespace msUtilities.Database
         /// in the form of database @ host
         /// </summary>
         /// <returns>current connection text</returns>
-        public override String ToString()
+        public override string ToString()
         {
-            return String.Format("{0} @ {1}", this.database, this.host);
+            return $"{database} @ {host}";
         }
 
         /// <summary>
@@ -122,22 +122,16 @@ namespace msUtilities.Database
         public void ToXml(XmlElement xmlElement, string encryptionKey = "")
 #endif
         {
-            xmlElement.SetAttribute("databaseType", this.databaseType.ToString());
-            xmlElement.SetAttribute("databaseTypeCustom", this.DatabaseTypeCustom);
-            xmlElement.SetAttribute("host", this.host);
-            xmlElement.SetAttribute("database", this.database);
-            xmlElement.SetAttribute("username", this.username);
+            xmlElement.SetAttribute("databaseType", databaseType.ToString());
+            xmlElement.SetAttribute("databaseTypeCustom", DatabaseTypeCustom);
+            xmlElement.SetAttribute("host", host);
+            xmlElement.SetAttribute("database", database);
+            xmlElement.SetAttribute("username", username);
 #if !NET452
-            xmlElement.SetAttribute("password", this.password);
+            xmlElement.SetAttribute("password", password);
 #else
-            if (encryptionKey == "")
-            {
-                xmlElement.SetAttribute("password", this.password);
-            }
-            else
-            {
-                xmlElement.SetAttribute("password", msStringCipher.Encrypt(this.password, encryptionKey));
-            }
+            xmlElement.SetAttribute("password",
+                encryptionKey == "" ? password : msStringCipher.Encrypt(password, encryptionKey));
 #endif
         }
 
@@ -152,29 +146,29 @@ namespace msUtilities.Database
         public void FromXml(XmlElement xmlElement, string encryptionKey = "")
 #endif
         {
-            string type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
+            var type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
             if (type.StartsWith("dt")) type = type.Remove(0, 2);
-            this.databaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), type);
-            this.DatabaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
-            this.host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
-            this.database = msXmlHelpers.attribute(xmlElement, "database", "");
-            this.username = msXmlHelpers.attribute(xmlElement, "username", "");
+            databaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), type);
+            DatabaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
+            host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
+            database = msXmlHelpers.attribute(xmlElement, "database", "");
+            username = msXmlHelpers.attribute(xmlElement, "username", "");
 #if !NET452
             this.password = msXmlHelpers.attribute(xmlElement, "password", "");
 #else
             if (encryptionKey == "")
             {
-                this.password = msXmlHelpers.attribute(xmlElement, "password", "");
+                password = msXmlHelpers.attribute(xmlElement, "password", "");
             }
             else
             {
                 try
                 {
-                    this.password = msStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+                    password = msStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
                 }
                 catch
                 {
-                    this.password = msXmlHelpers.attribute(xmlElement, "password", "");
+                    password = msXmlHelpers.attribute(xmlElement, "password", "");
                 }
             }
 #endif
@@ -184,18 +178,18 @@ namespace msUtilities.Database
         /// return the connection string for a firebird database
         /// </summary>
         /// <returns>connection string</returns>
-        private String getFirebird()
+        private string GetFirebird()
         {
-            return String.Format("User={0};Password={1};Database={2};DataSource={3};", this.username, this.password, this.database, this.host);
+            return $"User={username};Password={password};Database={database};DataSource={host};";
         }
 
         /// <summary>
         /// return the connection string for a sql server database
         /// </summary>
         /// <returns>connection string</returns>
-        private String getSqlServer()
+        private string GetSqlServer()
         {
-            return String.Format("User Id={0};Password={1};Database={2};Server={3};", this.username, this.password, this.database, this.host);
+            return $"User Id={username};Password={password};Database={database};Server={host};";
         }
 
     }

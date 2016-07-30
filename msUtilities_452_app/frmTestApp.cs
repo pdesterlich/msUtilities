@@ -19,7 +19,7 @@ namespace msUtilities_452_app
             if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());
-                MessageBox.Show(connectionParams.getConnectionString());
+                MessageBox.Show(connectionParams.GetConnectionString());
             }
         }
 
@@ -32,7 +32,7 @@ namespace msUtilities_452_app
             if (connectionForm.showDialog("msUtilities Test App", ref connectionParams))
             {
                 MessageBox.Show(connectionParams.ToString());
-                MessageBox.Show(connectionParams.getConnectionString());
+                MessageBox.Show(connectionParams.GetConnectionString());
             }
         }
 
