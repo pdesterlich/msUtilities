@@ -9,13 +9,14 @@ namespace msUtilities.Database
 {
     public class msDatabaseHelper
     {
-        public static string databaseConnectionTest(MsConnectionParams connectionParams)
+        public static string DatabaseConnectionTest(MsConnectionParams connectionParams)
         {
-            var error = "";
-            var dbConn = getConnection(out error, connectionParams);
+            string error;
+
+            var dbConn = GetConnection(out error, connectionParams);
             if (dbConn == null)
             {
-                return Messages.databaseNotConfigured + "\n" + error;
+                return string.Format(Messages.databaseNotConfigured, error);
             }
             else
             {
@@ -32,10 +33,9 @@ namespace msUtilities.Database
             }
         }
 
-        public static DbConnection getConnection(out string error, MsConnectionParams connectionParams)
+        public static DbConnection GetConnection(out string error, MsConnectionParams connectionParams)
         {
             error = "";
-            DbConnection dbConn = null;
 
             try
             {
@@ -43,25 +43,29 @@ namespace msUtilities.Database
                 {
                     case MsDatabaseType.Firebird:
 #if !NET20
-                        dbConn = new FbConnection(connectionParams.GetConnectionString());
+                        return new FbConnection(connectionParams.GetConnectionString());
 #else
                         error = Messages.databaseNotSupported;
+                        return null;
 #endif
-                        break;
                     case MsDatabaseType.SqlServer:
-                        dbConn = new SqlConnection(connectionParams.GetConnectionString());
-                        break;
+                        return new SqlConnection(connectionParams.GetConnectionString());
+                    case MsDatabaseType.None:
+                        error = Messages.databaseTypeNotSelected;
+                        return null;
+                    case MsDatabaseType.Other:
+                        error = Messages.databaseNotSupported;
+                        return null;
                     default:
                         error = Messages.databaseNotSupported;
-                        break;
+                        return null;
                 }
             }
             catch (Exception err)
             {
                 error = err.Message;
-                dbConn = null;
+                return null;
             }
-            return dbConn;
         }
 
         public static DbCommand GetCommand(MsConnectionParams connectionParams)

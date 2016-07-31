@@ -115,7 +115,7 @@ namespace msUtilities {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a database not correctly configured.
+        ///   Cerca una stringa localizzata simile a database not correctly configured: {0}.
         /// </summary>
         public static string databaseNotConfigured {
             get {
@@ -129,6 +129,15 @@ namespace msUtilities {
         public static string databaseNotSupported {
             get {
                 return ResourceManager.GetString("databaseNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a database type not selected.
+        /// </summary>
+        public static string databaseTypeNotSelected {
+            get {
+                return ResourceManager.GetString("databaseTypeNotSelected", resourceCulture);
             }
         }
         

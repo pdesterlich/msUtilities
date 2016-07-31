@@ -136,10 +136,13 @@
     <value>connessione a {0}:{1} effettuata correttamente</value>
   </data>
   <data name="databaseNotConfigured" xml:space="preserve">
-    <value>database non configurato correttamente</value>
+    <value>database non configurato correttamente: {0}</value>
   </data>
   <data name="databaseNotSupported" xml:space="preserve">
     <value>database non supportato</value>
+  </data>
+  <data name="databaseTypeNotSelected" xml:space="preserve">
+    <value>tipo database non selezionato</value>
   </data>
   <data name="ftpErrorGeneric" xml:space="preserve">
     <value>errore in upload del file {0}\n{1}</value>
