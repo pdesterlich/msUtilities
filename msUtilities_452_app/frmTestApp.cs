@@ -38,16 +38,18 @@ namespace msUtilities_452_app
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            msSendMail mailer = new msSendMail();
-            mailer.From = txtSendMailFrom.Text;
-            mailer.addTo(txtSendMailTo.Text);
-            mailer.Subject = txtSendMailSubject.Text;
-            mailer.Body = txtSendMailBody.Text;
-            mailer.smtpConfig.Host = txtSmtpHost.Text;
-            mailer.smtpConfig.Port = MsConversion.StringToInt(txtSmtpPort.Text, 25);
-            mailer.smtpConfig.Username = txtSmtpUser.Text;
-            mailer.smtpConfig.Password = txtSmtpPassword.Text;
-            mailer.smtpConfig.EnableSSL = chkSmtpSSL.Checked;
+            var mailer = new MsSendMail
+            {
+                From = txtSendMailFrom.Text,
+                Subject = txtSendMailSubject.Text,
+                Body = txtSendMailBody.Text
+            };
+            mailer.AddTo(txtSendMailTo.Text);
+            mailer.SmtpConfig.Host = txtSmtpHost.Text;
+            mailer.SmtpConfig.Port = txtSmtpPort.Text.StringToInt(25);
+            mailer.SmtpConfig.Username = txtSmtpUser.Text;
+            mailer.SmtpConfig.Password = txtSmtpPassword.Text;
+            mailer.SmtpConfig.EnableSSL = chkSmtpSSL.Checked;
 
             string error = "";
             if (mailer.Send(out error))
