@@ -44,7 +44,7 @@ namespace msUtilities_452_app
             mailer.Subject = txtSendMailSubject.Text;
             mailer.Body = txtSendMailBody.Text;
             mailer.smtpConfig.Host = txtSmtpHost.Text;
-            mailer.smtpConfig.Port = msConversion.stringToInt(txtSmtpPort.Text, 25);
+            mailer.smtpConfig.Port = MsConversion.StringToInt(txtSmtpPort.Text, 25);
             mailer.smtpConfig.Username = txtSmtpUser.Text;
             mailer.smtpConfig.Password = txtSmtpPassword.Text;
             mailer.smtpConfig.EnableSSL = chkSmtpSSL.Checked;
@@ -80,12 +80,12 @@ namespace msUtilities_452_app
 
         private void btnTestMinutesToDateTime_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(msConversion.minutesToDateTime(1000).ToString());
+            MessageBox.Show(MsConversion.MinutesToDateTime(1000).ToString());
         }
 
         private void txtStringToFloat_TextChanged(object sender, EventArgs e)
         {
-            lblStringToFloat.Text = "String to Float: " + msConversion.stringToFloat((sender as TextBox).Text, 0).ToString();
+            lblStringToFloat.Text = "String to Float: " + MsConversion.StringToFloat((sender as TextBox).Text, 0).ToString();
         }
     }
 }

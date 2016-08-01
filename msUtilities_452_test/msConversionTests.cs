@@ -1,37 +1,36 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace msUtilities.Tests
 {
-  [TestClass()]
-  public class msConversionTests
-  {
-    [TestMethod()]
-    public void stringToIntTest()
+    [TestClass()]
+    public class MsConversionTests
     {
-      var actual = msConversion.stringToInt("12", 0);
-      var expected = 12;
-      Assert.AreEqual(expected, actual);
+        [TestMethod()]
+        public void StringToIntTest()
+        {
+            var actual = "12".StringToInt(0);
+            const int expected = 12;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void MinutesToDateTimeTest()
+        {
+            const int minutes = 480;
+
+            var actual = MsConversion.MinutesToDateTime(minutes);
+
+            Assert.AreEqual(8, actual.Hour);
+            Assert.AreEqual(0, actual.Minute);
+        }
+
+        [TestMethod()]
+        public void StringToFloatTest()
+        {
+            var actual = "12.1".StringToFloat(0);
+            const double expected = 12.1;
+
+            Assert.AreEqual(expected, actual, 0.01);
+        }
     }
-
-    [TestMethod()]
-    public void minutesToDateTimeTest()
-    {
-      int minutes = 480;
-
-      DateTime actual = msConversion.minutesToDateTime(minutes);
-
-      Assert.AreEqual(8, actual.Hour);
-      Assert.AreEqual(0, actual.Minute);
-    }
-
-    [TestMethod()]
-    public void stringToFloatTest()
-    {
-      var actual = msConversion.stringToFloat("12.1", 0);
-      var expected = 12.1;
-
-      Assert.AreEqual(expected, actual, 0.01);
-    }
-  }
 }

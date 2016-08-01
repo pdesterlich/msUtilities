@@ -24,7 +24,7 @@ namespace msUtilities
         smtpConfig.Host = txtHost.Text;
         smtpConfig.Username = txtUsername.Text;
         smtpConfig.Password = txtPassword.Text;
-        smtpConfig.Port = msConversion.stringToInt(txtPort.Text, 25);
+        smtpConfig.Port = MsConversion.StringToInt(txtPort.Text, 25);
         smtpConfig.EnableSSL = chkEnableSSL.Checked;
 
         result = true;
