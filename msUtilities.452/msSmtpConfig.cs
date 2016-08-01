@@ -100,7 +100,7 @@ namespace msUtilities
       }
       else
       {
-        xmlElement.SetAttribute("password", msStringCipher.Encrypt(this.Password, encryptionKey));
+        xmlElement.SetAttribute("password", MsStringCipher.Encrypt(this.Password, encryptionKey));
       }
 #endif
     }
@@ -132,7 +132,7 @@ namespace msUtilities
       {
         try
         {
-          this.Password = msStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+          this.Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
         }
         catch
         {

@@ -126,7 +126,7 @@ namespace msUtilities.Database
             xmlElement.SetAttribute("password", Password);
 #else
             xmlElement.SetAttribute("password",
-                encryptionKey == "" ? Password : msStringCipher.Encrypt(Password, encryptionKey));
+                encryptionKey == "" ? Password : MsStringCipher.Encrypt(Password, encryptionKey));
 #endif
         }
 
@@ -159,7 +159,7 @@ namespace msUtilities.Database
             {
                 try
                 {
-                    Password = msStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+                    Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
                 }
                 catch
                 {

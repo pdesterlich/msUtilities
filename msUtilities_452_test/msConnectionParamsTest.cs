@@ -94,7 +94,7 @@ namespace msUtilities_452_test
 
             Assert.AreEqual("user", xmlElement.GetAttribute("username"));
             Assert.AreNotEqual("password", xmlElement.GetAttribute("password"));
-            Assert.AreEqual("password", msStringCipher.Decrypt(xmlElement.GetAttribute("password"), enctryptionKey));
+            Assert.AreEqual("password", MsStringCipher.Decrypt(xmlElement.GetAttribute("password"), enctryptionKey));
         }
 
         [TestMethod]
@@ -109,7 +109,7 @@ namespace msUtilities_452_test
             xmlElement.SetAttribute("host", "host");
             xmlElement.SetAttribute("database", "database");
             xmlElement.SetAttribute("username", "username");
-            xmlElement.SetAttribute("password", msStringCipher.Encrypt("password", encryptionKey));
+            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", encryptionKey));
 
             MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
 
@@ -129,7 +129,7 @@ namespace msUtilities_452_test
             xmlElement.SetAttribute("host", "host");
             xmlElement.SetAttribute("database", "database");
             xmlElement.SetAttribute("username", "username");
-            xmlElement.SetAttribute("password", msStringCipher.Encrypt("password", encryptionKey));
+            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", encryptionKey));
 
             MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
 
