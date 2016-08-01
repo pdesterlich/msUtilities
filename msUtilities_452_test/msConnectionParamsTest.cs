@@ -1,27 +1,32 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using msUtilities;
 using msUtilities.Database;
-using System;
 using System.Xml;
 
-namespace msUtilities_452_test
+namespace msUtilities.Tests
 {
     [TestClass]
-    public class msConnectionParamsTest
+    public class MsConnectionParamsTest
     {
+        private const string User = "user";
+        private const string Password = "password";
+        private const string Host = "host";
+        private const string DatabaseName = "DatabaseName";
+
+        private const string EncryptionKey = "key";
+
         [TestMethod]
         public void TestConnectionStringGenerationFirebird()
         {
-            MsConnectionParams conn = new MsConnectionParams(
+            var conn = new MsConnectionParams(
               MsDatabaseType.Firebird,
-              "user",
-              "password",
-              "host",
-              "database"
+              User,
+              Password,
+              Host,
+              DatabaseName
               );
 
-            string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
-            string result = conn.GetConnectionString();
+            var test = $"User={User};Password={Password};Database={DatabaseName};DataSource={Host};";
+            var result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -29,15 +34,17 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationFirebirdEmpty()
         {
-            var conn = new MsConnectionParams();
-            conn.DatabaseType = MsDatabaseType.Firebird;
-            conn.Username = "user";
-            conn.Password = "password";
-            conn.Host = "host";
-            conn.Database = "database";
+            var conn = new MsConnectionParams
+            {
+                DatabaseType = MsDatabaseType.Firebird,
+                Username = User,
+                Password = Password,
+                Host = Host,
+                Database = DatabaseName
+            };
 
-            string test = String.Format("User={0};Password={1};Database={2};DataSource={3};", "user", "password", "database", "host");
-            string result = conn.GetConnectionString();
+            var test = $"User={User};Password={Password};Database={DatabaseName};DataSource={Host};";
+            var result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -45,16 +52,16 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationSqlServer()
         {
-            MsConnectionParams conn = new MsConnectionParams(
+            var conn = new MsConnectionParams(
               MsDatabaseType.SqlServer,
-              "user",
-              "password",
-              "host",
-              "database"
+              User,
+              Password,
+              Host,
+              DatabaseName
               );
 
-            string test = String.Format("User Id={0};Password={1};Database={2};Server={3};", "user", "password", "database", "host");
-            string result = conn.GetConnectionString();
+            var test = $"User Id={User};Password={Password};Database={DatabaseName};Server={Host};";
+            var result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -62,16 +69,16 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionStringGenerationOther()
         {
-            MsConnectionParams conn = new MsConnectionParams(
+            var conn = new MsConnectionParams(
               MsDatabaseType.Other,
-              "user",
-              "password",
-              "host",
-              "database"
+              User,
+              Password,
+              Host,
+              DatabaseName
               );
 
-            string test = "";
-            string result = conn.GetConnectionString();
+            const string test = "";
+            var result = conn.GetConnectionString();
 
             Assert.AreEqual(test, result);
         }
@@ -79,62 +86,57 @@ namespace msUtilities_452_test
         [TestMethod]
         public void TestConnectionParamsToXml()
         {
-            string enctryptionKey = "key";
-            MsConnectionParams conn = new MsConnectionParams(
+            var conn = new MsConnectionParams(
               MsDatabaseType.Firebird,
-              "user",
-              "password",
-              "host",
-              "database"
+              User,
+              Password,
+              Host,
+              DatabaseName
               );
 
-            XmlDocument xml = new XmlDocument();
-            XmlElement xmlElement = xml.CreateElement("connection");
-            conn.ToXml(xmlElement, enctryptionKey);
+            var xml = new XmlDocument();
+            var xmlElement = xml.CreateElement("connection");
+            conn.ToXml(xmlElement, EncryptionKey);
 
             Assert.AreEqual("user", xmlElement.GetAttribute("username"));
             Assert.AreNotEqual("password", xmlElement.GetAttribute("password"));
-            Assert.AreEqual("password", MsStringCipher.Decrypt(xmlElement.GetAttribute("password"), enctryptionKey));
+            Assert.AreEqual("password", MsStringCipher.Decrypt(xmlElement.GetAttribute("password"), EncryptionKey));
         }
 
         [TestMethod]
         public void TestConnectionParamsFromXml()
         {
-            string encryptionKey = "key";
-
-            XmlDocument xml = new XmlDocument();
-            XmlElement xmlElement = xml.CreateElement("connection");
+            var xml = new XmlDocument();
+            var xmlElement = xml.CreateElement("connection");
             xmlElement.SetAttribute("databaseType", "Firebird");
             xmlElement.SetAttribute("databaseTypeCustom", "");
-            xmlElement.SetAttribute("host", "host");
-            xmlElement.SetAttribute("database", "database");
-            xmlElement.SetAttribute("username", "username");
-            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", encryptionKey));
+            xmlElement.SetAttribute("host", Host);
+            xmlElement.SetAttribute("DatabaseName", DatabaseName);
+            xmlElement.SetAttribute("username", User);
+            xmlElement.SetAttribute("password", MsStringCipher.Encrypt(Password, EncryptionKey));
 
-            MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
+            var conn = new MsConnectionParams(xmlElement, EncryptionKey);
 
             Assert.AreEqual(MsDatabaseType.Firebird, conn.DatabaseType);
-            Assert.AreEqual("password", conn.Password);
+            Assert.AreEqual(Password, conn.Password);
         }
 
         [TestMethod]
         public void TestConnectionParamsFromXmlOld()
         {
-            string encryptionKey = "key";
-
-            XmlDocument xml = new XmlDocument();
-            XmlElement xmlElement = xml.CreateElement("connection");
+            var xml = new XmlDocument();
+            var xmlElement = xml.CreateElement("connection");
             xmlElement.SetAttribute("databaseType", "dtFirebird");
             xmlElement.SetAttribute("databaseTypeCustom", "");
-            xmlElement.SetAttribute("host", "host");
-            xmlElement.SetAttribute("database", "database");
-            xmlElement.SetAttribute("username", "username");
-            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", encryptionKey));
+            xmlElement.SetAttribute("host", Host);
+            xmlElement.SetAttribute("DatabaseName", DatabaseName);
+            xmlElement.SetAttribute("username", User);
+            xmlElement.SetAttribute("password", MsStringCipher.Encrypt(Password, EncryptionKey));
 
-            MsConnectionParams conn = new MsConnectionParams(xmlElement, encryptionKey);
+            var conn = new MsConnectionParams(xmlElement, EncryptionKey);
 
             Assert.AreEqual(MsDatabaseType.Firebird, conn.DatabaseType);
-            Assert.AreEqual("password", conn.Password);
+            Assert.AreEqual(Password, conn.Password);
         }
     }
 }

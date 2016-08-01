@@ -1,17 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using msUtilities;
 using System.Xml;
 
-namespace msUtilities_452_test
+namespace msUtilities.Tests
 {
     [TestClass]
-    public class msSmtpConfigTest
+    public class MsSmtpConfigTest
     {
+        private const string EncryptionKey = "key";
+
         [TestMethod]
         public void TestSmtpConfigToXml()
         {
-            string enctryptionKey = "key";
-            msSmtpConfig config = new msSmtpConfig(
+            var config = new msSmtpConfig(
               "description",
               "mail.example.com",
               "user",
@@ -20,30 +20,28 @@ namespace msUtilities_452_test
               false
               );
 
-            XmlDocument xml = new XmlDocument();
-            XmlElement xmlElement = xml.CreateElement("config");
-            config.ToXml(xmlElement, enctryptionKey);
+            var xml = new XmlDocument();
+            var xmlElement = xml.CreateElement("config");
+            config.ToXml(xmlElement, EncryptionKey);
 
             Assert.AreEqual("user", xmlElement.GetAttribute("username"));
             Assert.AreNotEqual("password", xmlElement.GetAttribute("password"));
-            Assert.AreEqual("password", MsStringCipher.Decrypt(xmlElement.GetAttribute("password"), enctryptionKey));
+            Assert.AreEqual("password", MsStringCipher.Decrypt(xmlElement.GetAttribute("password"), EncryptionKey));
         }
 
         [TestMethod]
         public void TestSmtpConfigFromXml()
         {
-            string encryptionKey = "key";
-
-            XmlDocument xml = new XmlDocument();
-            XmlElement xmlElement = xml.CreateElement("config");
+            var xml = new XmlDocument();
+            var xmlElement = xml.CreateElement("config");
             xmlElement.SetAttribute("name", "description");
             xmlElement.SetAttribute("host", "mail.example.com");
             xmlElement.SetAttribute("username", "user");
             xmlElement.SetAttribute("port", 25.ToString());
             xmlElement.SetAttribute("enablessl", false.ToString());
-            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", encryptionKey));
+            xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", EncryptionKey));
 
-            msSmtpConfig config = new msSmtpConfig(xmlElement, encryptionKey);
+            var config = new msSmtpConfig(xmlElement, EncryptionKey);
 
             Assert.AreEqual("password", config.Password);
         }
