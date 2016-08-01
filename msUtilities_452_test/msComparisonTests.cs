@@ -12,11 +12,11 @@ namespace msUtilities.Tests
             var value = DateTime.Today;
             var lower = DateTime.Today.AddDays(-10);
             var upper = DateTime.Today.AddDays(10).Date;
-            var actual = MsComparison.Between(value, lower, upper);
+            var actual = value.Between(lower, upper);
             Assert.AreEqual(true, actual);
 
             value = DateTime.Today.AddDays(-20);
-            actual = MsComparison.Between(value, lower, upper);
+            actual = value.Between(lower, upper);
             Assert.AreEqual(false, actual);
         }
 
@@ -26,11 +26,11 @@ namespace msUtilities.Tests
             var value = 10;
             const int lower = 0;
             const int upper = 20;
-            var actual = MsComparison.Between(value, lower, upper);
+            var actual = value.Between(lower, upper);
             Assert.AreEqual(true, actual);
 
             value = -10;
-            actual = MsComparison.Between(value, lower, upper);
+            actual = value.Between(lower, upper);
             Assert.AreEqual(false, actual);
         }
     }
