@@ -73,19 +73,18 @@ namespace msUtilities_452_app
 
         private void buttonTestMessages_Click(object sender, EventArgs e)
         {
-            // String message = String.Format(Messages.databaseConnectionError, "some host", "some database", "some error").Replace("\\n", Environment.NewLine);
-            String message = msText.newLine(String.Format(Messages.databaseConnectionError, "some host", "some database", "some error"));
+            var message = string.Format(Messages.databaseConnectionError, "some host", "some database", "some error").NewLine();
             MessageBox.Show(message);
         }
 
         private void btnTestMinutesToDateTime_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(MsConversion.MinutesToDateTime(1000).ToString());
+            MessageBox.Show(1000.MinutesToDateTime().ToString());
         }
 
         private void txtStringToFloat_TextChanged(object sender, EventArgs e)
         {
-            lblStringToFloat.Text = "String to Float: " + MsConversion.StringToFloat((sender as TextBox).Text, 0).ToString();
+            lblStringToFloat.Text = "String to Float: " + (sender as TextBox).Text.StringToFloat(0).ToString();
         }
     }
 }
