@@ -49,7 +49,7 @@ namespace msUtilities_452_app
             mailer.SmtpConfig.Port = txtSmtpPort.Text.StringToInt(25);
             mailer.SmtpConfig.Username = txtSmtpUser.Text;
             mailer.SmtpConfig.Password = txtSmtpPassword.Text;
-            mailer.SmtpConfig.EnableSSL = chkSmtpSSL.Checked;
+            mailer.SmtpConfig.EnableSsl = chkSmtpSSL.Checked;
 
             string error = "";
             if (mailer.Send(out error))
@@ -65,7 +65,7 @@ namespace msUtilities_452_app
         private void button1_Click(object sender, EventArgs e)
         {
             var smtpConfigForm = new msSmtpConfigForm();
-            var smtpConfig = new msSmtpConfig();
+            var smtpConfig = new MsSmtpConfig();
             if (smtpConfigForm.showDialog("msUtilities Test App", ref smtpConfig))
             {
                 MessageBox.Show(smtpConfig.Name);

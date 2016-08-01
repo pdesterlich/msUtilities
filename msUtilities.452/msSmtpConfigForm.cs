@@ -3,53 +3,53 @@ using System.Windows.Forms;
 
 namespace msUtilities
 {
-  public partial class msSmtpConfigForm : Form
-  {
-    public bool showDialog(string title, ref msSmtpConfig smtpConfig)
+    public partial class msSmtpConfigForm : Form
     {
-      bool result = false;
+        public bool showDialog(string title, ref MsSmtpConfig smtpConfig)
+        {
+            bool result = false;
 
-      this.Text = title;
+            this.Text = title;
 
-      txtName.Text = smtpConfig.Name;
-      txtHost.Text = smtpConfig.Host;
-      txtUsername.Text = smtpConfig.Username;
-      txtPassword.Text = smtpConfig.Password;
-      txtPort.Text = smtpConfig.Port.ToString();
-      chkEnableSSL.Checked = smtpConfig.EnableSSL;
+            txtName.Text = smtpConfig.Name;
+            txtHost.Text = smtpConfig.Host;
+            txtUsername.Text = smtpConfig.Username;
+            txtPassword.Text = smtpConfig.Password;
+            txtPort.Text = smtpConfig.Port.ToString();
+            chkEnableSSL.Checked = smtpConfig.EnableSsl;
 
-      if (this.ShowDialog() == DialogResult.OK)
-      {
-        smtpConfig.Name = txtName.Text;
-        smtpConfig.Host = txtHost.Text;
-        smtpConfig.Username = txtUsername.Text;
-        smtpConfig.Password = txtPassword.Text;
-        smtpConfig.Port = MsConversion.StringToInt(txtPort.Text, 25);
-        smtpConfig.EnableSSL = chkEnableSSL.Checked;
+            if (this.ShowDialog() == DialogResult.OK)
+            {
+                smtpConfig.Name = txtName.Text;
+                smtpConfig.Host = txtHost.Text;
+                smtpConfig.Username = txtUsername.Text;
+                smtpConfig.Password = txtPassword.Text;
+                smtpConfig.Port = MsConversion.StringToInt(txtPort.Text, 25);
+                smtpConfig.EnableSsl = chkEnableSSL.Checked;
 
-        result = true;
-      }
+                result = true;
+            }
 
-      return result;
+            return result;
+        }
+
+        public msSmtpConfigForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.UseSystemPasswordChar)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                (sender as Button).Text = "nascondi";
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                (sender as Button).Text = "mostra";
+            }
+        }
     }
-
-    public msSmtpConfigForm()
-    {
-      InitializeComponent();
-    }
-
-    private void btnShowPassword_Click(object sender, EventArgs e)
-    {
-      if (txtPassword.UseSystemPasswordChar)
-      {
-        txtPassword.UseSystemPasswordChar = false;
-        (sender as Button).Text = "nascondi";
-      }
-      else
-      {
-        txtPassword.UseSystemPasswordChar = true;
-        (sender as Button).Text = "mostra";
-      }
-    }
-  }
 }

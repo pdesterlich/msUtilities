@@ -1,145 +1,138 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 
 namespace msUtilities
 {
-  /// <summary>
-  /// class msSmtpConfig
-  /// holds smtp server connection parameters
-  /// </summary>
-  public class msSmtpConfig
-  {
-    public string Name { get; set; } = "";
-    public string Host { get; set; } = "";
-    public string Username { get; set; } = "";
-    public string Password { get; set; } = "";
-    public int Port { get; set; } = 25;
-    public bool EnableSSL { get; set; } = false;
-
     /// <summary>
-    /// class initialization (empty)
+    /// class msSmtpConfig
+    /// holds smtp server connection parameters
     /// </summary>
-    public msSmtpConfig()
+    public class MsSmtpConfig
     {
-      this._init();
-    }
+        public string Name { get; set; } = "";
+        public string Host { get; set; } = "";
+        public string Username { get; set; } = "";
+        public string Password { get; set; } = "";
+        public int Port { get; set; } = 25;
+        public bool EnableSsl { get; set; }
 
-    /// <summary>
-    /// class initialization (passing parameters)
-    /// </summary>
-    /// <param name="Name">smtp config description name</param>
-    /// <param name="Host">host name</param>
-    /// <param name="Username">user name</param>
-    /// <param name="Password">password</param>
-    /// <param name="Port">port number</param>
-    /// <param name="EnableSSL">enable ssl</param>
-    public msSmtpConfig(string Name, string Host, string Username, string Password, int Port, bool EnableSSL)
-    {
-      this.Name = Name;
-      this.Host = Host;
-      this.Username = Username;
-      this.Password = Password;
-      this.Port = Port;
-      this.EnableSSL = EnableSSL;
-    }
-
-    /// <summary>
-    /// class initialization (read params from XmlElement attributes)
-    /// </summary>
-    /// <param name="xmlElement">XmlElement to read params from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
-#if !NET452
-    public msSmtpConfig(XmlElement xmlElement)
-#else
-    public msSmtpConfig(XmlElement xmlElement, string encryptionKey = "")
-#endif
-    {
-      this._init();
-#if !NET452
-      this.FromXml(xmlElement);
-#else
-      this.FromXml(xmlElement, encryptionKey);
-#endif
-    }
-
-    /// <summary>
-    /// intialize all fields to default value
-    /// </summary>
-    private void _init()
-    {
-      this.Name = "";
-      this.Host = "";
-      this.Username = "";
-      this.Password = "";
-      this.Port = 25;
-      this.EnableSSL = false;
-    }
-
-    /// <summary>
-    /// writes smtp server params as attributes of a xml element
-    /// </summary>
-    /// <param name="xmlElement">XmlElement to add attributes to</param>
-    /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
-#if !NET452
-    public void ToXml(XmlElement xmlElement)
-#else
-    public void ToXml(XmlElement xmlElement, String encryptionKey = "")
-#endif
-    {
-      xmlElement.SetAttribute("name", this.Name);
-      xmlElement.SetAttribute("host", this.Host);
-      xmlElement.SetAttribute("username", this.Username);
-      xmlElement.SetAttribute("port", this.Port.ToString());
-      xmlElement.SetAttribute("enablessl", this.EnableSSL.ToString());
-#if !NET452
-      xmlElement.SetAttribute("password", this.Password);
-#else
-      if (encryptionKey == "")
-      {
-        xmlElement.SetAttribute("password", this.Password);
-      }
-      else
-      {
-        xmlElement.SetAttribute("password", MsStringCipher.Encrypt(this.Password, encryptionKey));
-      }
-#endif
-    }
-
-    /// <summary>
-    /// loads smtp server params from attributes of a xml element
-    /// </summary>
-    /// <param name="xmlElement">XmlElement to read attributes from</param>
-    /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
-#if !NET452
-    public void FromXml(XmlElement xmlElement)
-#else
-    public void FromXml(XmlElement xmlElement, string encryptionKey = "")
-#endif
-    {
-      this.Name = msXmlHelpers.attribute(xmlElement, "name", "");
-      this.Host = msXmlHelpers.attribute(xmlElement, "host", "");
-      this.Username = msXmlHelpers.attribute(xmlElement, "username", "");
-      this.Port = msXmlHelpers.attribute(xmlElement, "port", 25);
-      this.EnableSSL = msXmlHelpers.attribute(xmlElement, "enablessl", false);
-#if !NET452
-      this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
-#else
-      if (encryptionKey == "")
-      {
-        this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
-      }
-      else
-      {
-        try
+        /// <summary>
+        /// class initialization (empty)
+        /// </summary>
+        public MsSmtpConfig()
         {
-          this.Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+            _init();
         }
-        catch
+
+        /// <summary>
+        /// class initialization (passing parameters)
+        /// </summary>
+        /// <param name="name">smtp config description name</param>
+        /// <param name="host">host name</param>
+        /// <param name="username">user name</param>
+        /// <param name="password">password</param>
+        /// <param name="port">port number</param>
+        /// <param name="enableSsl">enable ssl</param>
+        public MsSmtpConfig(string name, string host, string username, string password, int port, bool enableSsl)
         {
-          this.Password = msXmlHelpers.attribute(xmlElement, "password", "");
+            Name = name;
+            Host = host;
+            Username = username;
+            Password = password;
+            Port = port;
+            EnableSsl = enableSsl;
         }
-      }
+
+        /// <summary>
+        /// class initialization (read params from XmlElement attributes)
+        /// </summary>
+        /// <param name="xmlElement">XmlElement to read params from</param>
+#if NET452
+        /// <param name="encryptionKey">optional encryption key used for password decryption (only for msUtilities.452)</param>
+        public MsSmtpConfig(XmlElement xmlElement, string encryptionKey = "")
+#else
+        public MsSmtpConfig(XmlElement xmlElement)
 #endif
+        {
+            _init();
+#if NET452
+            FromXml(xmlElement, encryptionKey);
+#else
+            FromXml(xmlElement);
+#endif
+        }
+
+        /// <summary>
+        /// intialize all fields to default value
+        /// </summary>
+        private void _init()
+        {
+            Name = "";
+            Host = "";
+            Username = "";
+            Password = "";
+            Port = 25;
+            EnableSsl = false;
+        }
+
+        /// <summary>
+        /// writes smtp server params as attributes of a xml element
+        /// </summary>
+        /// <param name="xmlElement">XmlElement to add attributes to</param>
+#if NET452
+        /// <param name="encryptionKey">optional encryption key used for password encryption (if empty, password is written in clear) (only for msUtilities.452)</param>
+        public void ToXml(XmlElement xmlElement, string encryptionKey = "")
+#else
+        public void ToXml(XmlElement xmlElement)
+#endif
+        {
+            xmlElement.SetAttribute("name", Name);
+            xmlElement.SetAttribute("host", Host);
+            xmlElement.SetAttribute("username", Username);
+            xmlElement.SetAttribute("port", Port.ToString());
+            xmlElement.SetAttribute("enablessl", EnableSsl.ToString());
+#if NET452
+            xmlElement.SetAttribute("password",
+                encryptionKey == "" ? Password : MsStringCipher.Encrypt(Password, encryptionKey));
+#else
+            xmlElement.SetAttribute("password", Password);
+#endif
+        }
+
+        /// <summary>
+        /// loads smtp server params from attributes of a xml element
+        /// </summary>
+        /// <param name="xmlElement">XmlElement to read attributes from</param>
+#if NET452
+        /// <param name="encryptionKey">optional encryption key used for password decryption (if empty, password is read as is) (only for msUtilities.452)</param>
+        public void FromXml(XmlElement xmlElement, string encryptionKey = "")
+#else
+        public void FromXml(XmlElement xmlElement)
+#endif
+        {
+            Name = msXmlHelpers.attribute(xmlElement, "name", "");
+            Host = msXmlHelpers.attribute(xmlElement, "host", "");
+            Username = msXmlHelpers.attribute(xmlElement, "username", "");
+            Port = msXmlHelpers.attribute(xmlElement, "port", 25);
+            EnableSsl = msXmlHelpers.attribute(xmlElement, "enablessl", false);
+#if NET452
+            if (encryptionKey == "")
+            {
+                Password = msXmlHelpers.attribute(xmlElement, "password", "");
+            }
+            else
+            {
+                try
+                {
+                    Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+                }
+                catch
+                {
+                    Password = msXmlHelpers.attribute(xmlElement, "password", "");
+                }
+            }
+#else
+            Password = msXmlHelpers.attribute(xmlElement, "password", "");
+#endif
+        }
     }
-  }
 }

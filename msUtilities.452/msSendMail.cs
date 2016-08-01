@@ -13,7 +13,7 @@ namespace msUtilities
     {
         private MailMessage _message = new MailMessage();
 
-        public msSmtpConfig SmtpConfig { get; set; } = new msSmtpConfig();
+        public MsSmtpConfig SmtpConfig { get; set; } = new MsSmtpConfig();
         public string From
         {
             get { return _message.From.ToString(); }
@@ -42,7 +42,7 @@ namespace msUtilities
         /// class initialization (with smtp config parameters)
         /// </summary>
         /// <param name="smtpConfig">smtp configuration</param>
-        public MsSendMail(msSmtpConfig smtpConfig)
+        public MsSendMail(MsSmtpConfig smtpConfig)
         {
             _init();
             SmtpConfig = smtpConfig;
@@ -70,7 +70,7 @@ namespace msUtilities
         /// </summary>
         private void _init()
         {
-            SmtpConfig = new msSmtpConfig();
+            SmtpConfig = new MsSmtpConfig();
             _message = new MailMessage();
         }
 
@@ -128,7 +128,7 @@ namespace msUtilities
                 {
                     Host = SmtpConfig.Host,
                     Port = SmtpConfig.Port,
-                    EnableSsl = SmtpConfig.EnableSSL,
+                    EnableSsl = SmtpConfig.EnableSsl,
                     Credentials = new NetworkCredential(SmtpConfig.Username, SmtpConfig.Password)
                 };
 

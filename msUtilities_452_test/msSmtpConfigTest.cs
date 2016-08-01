@@ -11,7 +11,7 @@ namespace msUtilities.Tests
         [TestMethod]
         public void TestSmtpConfigToXml()
         {
-            var config = new msSmtpConfig(
+            var config = new MsSmtpConfig(
               "description",
               "mail.example.com",
               "user",
@@ -41,7 +41,7 @@ namespace msUtilities.Tests
             xmlElement.SetAttribute("enablessl", false.ToString());
             xmlElement.SetAttribute("password", MsStringCipher.Encrypt("password", EncryptionKey));
 
-            var config = new msSmtpConfig(xmlElement, EncryptionKey);
+            var config = new MsSmtpConfig(xmlElement, EncryptionKey);
 
             Assert.AreEqual("password", config.Password);
         }
