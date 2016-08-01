@@ -57,7 +57,7 @@
       <DependentUpon>msConnectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="msConnectionParams.cs" />
-    <Compile Include="msDatabaseHelper.cs" />
+    <Compile Include="MsDatabaseHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

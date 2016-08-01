@@ -7,7 +7,7 @@ using FirebirdSql.Data.FirebirdClient;
 
 namespace msUtilities.Database
 {
-    public class msDatabaseHelper
+    public static class MsDatabaseHelpers
     {
         public static string DatabaseConnectionTest(MsConnectionParams connectionParams)
         {

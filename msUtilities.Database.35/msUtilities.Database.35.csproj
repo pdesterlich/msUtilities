@@ -59,8 +59,8 @@
     <Compile Include="..\msUtilities.Database.452\msConnectionParams.cs">
       <Link>msConnectionParams.cs</Link>
     </Compile>
-    <Compile Include="..\msUtilities.Database.452\msDatabaseHelper.cs">
-      <Link>msDatabaseHelper.cs</Link>
+    <Compile Include="..\msUtilities.Database.452\MsDatabaseHelpers.cs">
+      <Link>MsDatabaseHelpers.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
