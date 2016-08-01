@@ -108,17 +108,19 @@ namespace msUtilities
             foreach (var param in GetParams)
             {
                 // ReSharper disable once UseStringInterpolation
-                address += string.Format("{0}{1}={2}", ((address.Contains("?")) ? "&" : "?"), param.Key, param.Value);
+                getParams += string.Format("{0}{1}={2}", getParams == "" ? "" : "&", param.Key, param.Value);
             }
 
             // add additional get parameters
             if (AdditionalGetParams != "") getParams += (getParams == "" ? "" : "&") + AdditionalGetParams;
 
-            address += (address[address.Length - 1] != '?' ? "?" : "&") + getParams;
+            // add composite get params to address
+            if (getParams != "") address += "?" + getParams;
 
-            // Create a request using a URL that can receive a post.
+            // Create a request using obtained url
             var request = WebRequest.Create(address);
 
+            // sets request method
             request.Method = Method;
 
             try
