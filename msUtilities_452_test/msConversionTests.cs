@@ -18,7 +18,7 @@ namespace msUtilities.Tests
         {
             const int minutes = 480;
 
-            var actual = MsConversion.MinutesToDateTime(minutes);
+            var actual = minutes.MinutesToDateTime();
 
             Assert.AreEqual(8, actual.Hour);
             Assert.AreEqual(0, actual.Minute);

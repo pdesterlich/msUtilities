@@ -64,7 +64,11 @@ namespace msUtilities
         /// <param name="minutes">number of minutes elapsed from midnight</param>
         /// <param name="date">reference date (default today)</param>
         /// <returns>datetime</returns>
+#if NET20
         public static DateTime MinutesToDateTime(int minutes, DateTime date = default(DateTime))
+#else
+        public static DateTime MinutesToDateTime(this int minutes, DateTime date = default(DateTime))
+#endif
         {
             if (date == DateTime.MinValue) date = DateTime.Now;
             return new DateTime(date.Year, date.Month, date.Day, minutes / 60, minutes % 60, 0);
