@@ -62,6 +62,9 @@
     <Compile Include="..\msUtilities.Database.452\MsDatabaseHelpers.cs">
       <Link>MsDatabaseHelpers.cs</Link>
     </Compile>
+    <Compile Include="..\msUtilities.Database.452\MsDatabaseType.cs">
+      <Link>MsDatabaseType.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

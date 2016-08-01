@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="msConnectionParams.cs" />
     <Compile Include="MsDatabaseHelpers.cs" />
+    <Compile Include="MsDatabaseType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
