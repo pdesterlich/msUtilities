@@ -141,29 +141,29 @@ namespace msUtilities.Database
         public void FromXml(XmlElement xmlElement)
 #endif
         {
-            var type = msXmlHelpers.attribute(xmlElement, "databaseType", "Firebird");
+            var type = MsXmlHelpers.Attribute(xmlElement, "databaseType", "Firebird");
             if (type.StartsWith("dt")) type = type.Remove(0, 2);
             DatabaseType = (MsDatabaseType)Enum.Parse(typeof(MsDatabaseType), type);
-            DatabaseTypeCustom = msXmlHelpers.attribute(xmlElement, "databaseTypeCustom", "");
-            Host = msXmlHelpers.attribute(xmlElement, "host", "localhost");
-            Database = msXmlHelpers.attribute(xmlElement, "database", "");
-            Username = msXmlHelpers.attribute(xmlElement, "username", "");
+            DatabaseTypeCustom = MsXmlHelpers.Attribute(xmlElement, "databaseTypeCustom", "");
+            Host = MsXmlHelpers.Attribute(xmlElement, "host", "localhost");
+            Database = MsXmlHelpers.Attribute(xmlElement, "database", "");
+            Username = MsXmlHelpers.Attribute(xmlElement, "username", "");
 #if !NET452
-            Password = msXmlHelpers.attribute(xmlElement, "password", "");
+            Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
 #else
             if (encryptionKey == "")
             {
-                Password = msXmlHelpers.attribute(xmlElement, "password", "");
+                Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
             }
             else
             {
                 try
                 {
-                    Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+                    Password = MsStringCipher.Decrypt(MsXmlHelpers.Attribute(xmlElement, "password", ""), encryptionKey);
                 }
                 catch
                 {
-                    Password = msXmlHelpers.attribute(xmlElement, "password", "");
+                    Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
                 }
             }
 #endif

@@ -109,29 +109,29 @@ namespace msUtilities
         public void FromXml(XmlElement xmlElement)
 #endif
         {
-            Name = msXmlHelpers.attribute(xmlElement, "name", "");
-            Host = msXmlHelpers.attribute(xmlElement, "host", "");
-            Username = msXmlHelpers.attribute(xmlElement, "username", "");
-            Port = msXmlHelpers.attribute(xmlElement, "port", 25);
-            EnableSsl = msXmlHelpers.attribute(xmlElement, "enablessl", false);
+            Name = MsXmlHelpers.Attribute(xmlElement, "name", "");
+            Host = MsXmlHelpers.Attribute(xmlElement, "host", "");
+            Username = MsXmlHelpers.Attribute(xmlElement, "username", "");
+            Port = MsXmlHelpers.Attribute(xmlElement, "port", 25);
+            EnableSsl = MsXmlHelpers.Attribute(xmlElement, "enablessl", false);
 #if NET452
             if (encryptionKey == "")
             {
-                Password = msXmlHelpers.attribute(xmlElement, "password", "");
+                Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
             }
             else
             {
                 try
                 {
-                    Password = MsStringCipher.Decrypt(msXmlHelpers.attribute(xmlElement, "password", ""), encryptionKey);
+                    Password = MsStringCipher.Decrypt(MsXmlHelpers.Attribute(xmlElement, "password", ""), encryptionKey);
                 }
                 catch
                 {
-                    Password = msXmlHelpers.attribute(xmlElement, "password", "");
+                    Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
                 }
             }
 #else
-            Password = msXmlHelpers.attribute(xmlElement, "password", "");
+            Password = MsXmlHelpers.Attribute(xmlElement, "password", "");
 #endif
         }
     }
