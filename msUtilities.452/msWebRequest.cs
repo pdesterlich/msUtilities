@@ -5,6 +5,13 @@ using System.Net;
 
 namespace msUtilities
 {
+    public struct MsWebRequestResponse
+    {
+        public HttpStatusCode StatusCode { get; set; }
+        public string StatusDescription { get; set; }
+        public string Response { get; set; }
+    }
+
     /**
      * msWebRequest
      * manage HTTP(S) web requests, encapsulating WebRequest object and functionalities
@@ -53,13 +60,6 @@ namespace msUtilities
         public string AdditionalGetParams { get; set; }
 
         /// <summary>
-        /// response status
-        /// </summary>
-        private string _status = "";
-
-        public string Status => _status;
-
-        /// <summary>
         /// class init function (with method)
         /// </summary>
         /// <param name="url">address for request</param>
@@ -98,8 +98,10 @@ namespace msUtilities
         /// connect to target url and get response
         /// </summary>
         /// <returns></returns>
-        public string GetResponse()
+        public MsWebRequestResponse GetResponse()
         {
+            var result = new MsWebRequestResponse();
+
             var address = _url;
 
             var getParams = "";
@@ -156,7 +158,10 @@ namespace msUtilities
                 var response = request.GetResponse();
 
                 // set response status
-                _status = ((HttpWebResponse)response).StatusDescription;
+                result.StatusDescription = ((HttpWebResponse)response).StatusDescription;
+
+                // set response code
+                result.StatusCode = ((HttpWebResponse)response).StatusCode;
 
                 // parse response from stream reader
                 var responseFromServer = "";
@@ -169,14 +174,18 @@ namespace msUtilities
                         responseFromServer = streamReader.ReadToEnd();
                     }
 
-                // return response
-                return responseFromServer;
+                // set response string
+                result.Response = responseFromServer;
+
             }
             // in case of errors returns them
             catch (WebException err)
             {
-                return $"error: {err.Status} - {err.Message}";
+                result.Response = $"error: {err.Status} - {err.Message}";
             }
+
+            // return response
+            return result;
         }
 
         /// <summary>

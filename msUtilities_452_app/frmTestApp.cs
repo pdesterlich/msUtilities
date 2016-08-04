@@ -88,5 +88,19 @@ namespace msUtilities_452_app
         {
             lblStringToFloat.Text = "String to Float: " + (sender as TextBox).Text.StringToFloat(0).ToString();
         }
+
+        private void btnWebRequest_Click(object sender, EventArgs e)
+        {
+            var request = new MsWebRequest(txtWebRequestHost.Text, txtWebRequestProtocol.Text);
+            if (txtWebRequestPostBody.Text.Trim() != "")
+                request.PostParams = txtWebRequestPostBody.Text.Trim();
+
+            var response = request.GetResponse();
+
+            txtWebRequestResponse.Text =
+                $"status code: {response.StatusCode.ToString()}" + Environment.NewLine +
+                $"status text: {response.StatusDescription}" + Environment.NewLine +
+                response.Response;
+        }
     }
 }

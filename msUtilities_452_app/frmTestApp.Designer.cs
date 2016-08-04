@@ -56,9 +56,20 @@
             this.txtSmtpPassword = new System.Windows.Forms.TextBox();
             this.txtSmtpUser = new System.Windows.Forms.TextBox();
             this.txtSmtpHost = new System.Windows.Forms.TextBox();
+            this.tabMsWebRequest = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtWebRequestPostBody = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtWebRequestProtocol = new System.Windows.Forms.TextBox();
+            this.txtWebRequestHost = new System.Windows.Forms.TextBox();
+            this.btnWebRequest = new System.Windows.Forms.Button();
+            this.txtWebRequestResponse = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabTests.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabSendMail.SuspendLayout();
+            this.tabMsWebRequest.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTestMsConnectionForms
@@ -88,6 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabTests.Controls.Add(this.tabMain);
             this.tabTests.Controls.Add(this.tabSendMail);
+            this.tabTests.Controls.Add(this.tabMsWebRequest);
             this.tabTests.Location = new System.Drawing.Point(12, 12);
             this.tabTests.Name = "tabTests";
             this.tabTests.SelectedIndex = 0;
@@ -337,6 +349,101 @@
             this.txtSmtpHost.Size = new System.Drawing.Size(300, 20);
             this.txtSmtpHost.TabIndex = 0;
             // 
+            // tabMsWebRequest
+            // 
+            this.tabMsWebRequest.BackColor = System.Drawing.SystemColors.Control;
+            this.tabMsWebRequest.Controls.Add(this.label12);
+            this.tabMsWebRequest.Controls.Add(this.txtWebRequestResponse);
+            this.tabMsWebRequest.Controls.Add(this.btnWebRequest);
+            this.tabMsWebRequest.Controls.Add(this.label9);
+            this.tabMsWebRequest.Controls.Add(this.txtWebRequestPostBody);
+            this.tabMsWebRequest.Controls.Add(this.label10);
+            this.tabMsWebRequest.Controls.Add(this.label11);
+            this.tabMsWebRequest.Controls.Add(this.txtWebRequestProtocol);
+            this.tabMsWebRequest.Controls.Add(this.txtWebRequestHost);
+            this.tabMsWebRequest.Location = new System.Drawing.Point(4, 22);
+            this.tabMsWebRequest.Name = "tabMsWebRequest";
+            this.tabMsWebRequest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMsWebRequest.Size = new System.Drawing.Size(652, 361);
+            this.tabMsWebRequest.TabIndex = 2;
+            this.tabMsWebRequest.Text = "WebRequest";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 61);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "post body";
+            // 
+            // txtWebRequestPostBody
+            // 
+            this.txtWebRequestPostBody.Location = new System.Drawing.Point(100, 58);
+            this.txtWebRequestPostBody.Multiline = true;
+            this.txtWebRequestPostBody.Name = "txtWebRequestPostBody";
+            this.txtWebRequestPostBody.Size = new System.Drawing.Size(300, 90);
+            this.txtWebRequestPostBody.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(49, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "protocol";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(67, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(27, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "host";
+            // 
+            // txtWebRequestProtocol
+            // 
+            this.txtWebRequestProtocol.Location = new System.Drawing.Point(100, 32);
+            this.txtWebRequestProtocol.Name = "txtWebRequestProtocol";
+            this.txtWebRequestProtocol.Size = new System.Drawing.Size(300, 20);
+            this.txtWebRequestProtocol.TabIndex = 19;
+            // 
+            // txtWebRequestHost
+            // 
+            this.txtWebRequestHost.Location = new System.Drawing.Point(100, 6);
+            this.txtWebRequestHost.Name = "txtWebRequestHost";
+            this.txtWebRequestHost.Size = new System.Drawing.Size(300, 20);
+            this.txtWebRequestHost.TabIndex = 18;
+            // 
+            // btnWebRequest
+            // 
+            this.btnWebRequest.Location = new System.Drawing.Point(300, 154);
+            this.btnWebRequest.Name = "btnWebRequest";
+            this.btnWebRequest.Size = new System.Drawing.Size(100, 23);
+            this.btnWebRequest.TabIndex = 24;
+            this.btnWebRequest.Text = "WebRequest";
+            this.btnWebRequest.UseVisualStyleBackColor = true;
+            this.btnWebRequest.Click += new System.EventHandler(this.btnWebRequest_Click);
+            // 
+            // txtWebRequestResponse
+            // 
+            this.txtWebRequestResponse.Location = new System.Drawing.Point(100, 183);
+            this.txtWebRequestResponse.Multiline = true;
+            this.txtWebRequestResponse.Name = "txtWebRequestResponse";
+            this.txtWebRequestResponse.Size = new System.Drawing.Size(300, 172);
+            this.txtWebRequestResponse.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(41, 186);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "response";
+            // 
             // frmTestApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +457,8 @@
             this.tabMain.PerformLayout();
             this.tabSendMail.ResumeLayout(false);
             this.tabSendMail.PerformLayout();
+            this.tabMsWebRequest.ResumeLayout(false);
+            this.tabMsWebRequest.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -384,6 +493,16 @@
     private System.Windows.Forms.Button btnTestMinutesToDateTime;
     private System.Windows.Forms.Label lblStringToFloat;
     private System.Windows.Forms.TextBox txtStringToFloat;
+        private System.Windows.Forms.TabPage tabMsWebRequest;
+        private System.Windows.Forms.Button btnWebRequest;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtWebRequestPostBody;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtWebRequestProtocol;
+        private System.Windows.Forms.TextBox txtWebRequestHost;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtWebRequestResponse;
     }
 }
 
